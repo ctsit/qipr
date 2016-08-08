@@ -19,3 +19,9 @@ def get_id_or_none(model):
         return model.id
     except:
         return None
+
+def get_instance_or_none(Model, prop, value):
+    try:
+        return Model.objects.get(**{prop:value})
+    except:
+        return None

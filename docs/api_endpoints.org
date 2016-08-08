@@ -1,0 +1,89 @@
+* Scenario
+Scotty needs to beam information into the registry database. He is
+able to send his data RESTfully in json format to the server where
+it will, after validating that he is allowed to do what he is 
+trying to do, POST the new model or PATCH the old model to update.
+
+Scotty is also able to search the database using the api. He can 
+find tags by searching either
+- id
+- name
+- description
+
+and can find projects by 
+- filtering on any number of tags
+- description matching
+- title matching
+- owner
+- collaborators
+  
+Search API's return all entities that match the filter
+
+* Implementation
+** TODO add model
+- [X] route
+- [X] accepts serialized django model
+- [X] translation module for making any needed alterations
+  - [X] making the foreign_id accessible
+  - [X] uses ForeignSource
+*** relation add
+- [ ] approver passes model with related item
+- [ ] approver also passes natural_key serialization of relations
+- [ ] lookup item by guid
+- [ ] option 1: add those adjacent items with little info
+** TODO approver translation module
+The information from approver needs to have a translation module since
+the model class definition will not always be the same between approver
+and registry. Further, there may be additional inflows of data so we 
+need to make sure that we can build models from just plain old JSON.
+*** TODO all models deserializable
+- [ ] person
+- [ ] tag
+- [ ] project
+- [ ] address
+** TODO dynamic translation module selection
+This is a future enhancement for when we have multiple inflows of data.
+The idea would be that based on the user (or json field in the payload),
+trying to push data into the registry we dynamically decide which 
+translation model to use. This module will be able to deserialize from
+what is passed.
+** DONE database schema
+CLOSED: [2016-09-06 Tue 09:50]
+Two different django projects, two different databases but we want
+to store the same data. We need to be able to keep the schema's in
+sync with one another.
+
+This problem goes deeper than the schema. Since we are serializing
+and deserializing with the natural keys, we need to define the 
+managers for deserialization. It will be tough to keep the two in
+line with on another.
+
+Even if we get the serialization and deserialization working there
+is still the issue of foreign keys. We can have a person without a
+project, and a project without any people, but we cannot have a 
+project or person that already has related fields, that do not exist.
+
+A solution would be to transfer all the non-related information over
+then at a later time fill in all the relations based on the natural
+keys. We have to figure out when to do this. We also can only do
+it when all adjacent related objects are in the registry.
+
+Keeping the database definition in sync with the approver will
+not be easy. It is important initially for the code to be the same
+since many aspects of database integrity are exclusively the ORM's
+responsibility
+*** option 3: copy paste
+Copy and paste until we release. After release this should probably
+become the dont keep them in sync option because they will get out
+of sync.
+*** option 4: dont keep them in sync
+If we plan for the databases getting out of sync we can use translation
+or something so that if registry changes then we can let it, and make
+sure to just update the translation if we need to. This makes bidirectional
+communication more difficult and so we would probably want to do away with it.
+* Approver implementation
+** TODO Make sure we have all related dependencies
+- [X] calls the route
+- [X] serializes with guid
+- [ ] error handling
+- [ ] login / hardening
