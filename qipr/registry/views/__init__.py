@@ -1,1 +1,1 @@
-import registry.views.*
+from registry.views.search import *
