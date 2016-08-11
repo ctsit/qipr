@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 from registry.constants import STATE_CHOICES, COUNTRY_CHOICES
-form registry import utils
+from registry import utils
 
 class TagNaturalKey(models.Model):
 
