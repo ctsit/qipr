@@ -8,7 +8,7 @@ from registry import utils
 class TagNaturalKey(models.Model):
 
     def natural_key(self):
-        return (self.name, self.description or '')
+        return (self.id, self.name, self.description or '')
 
     class Meta:
         abstract = True
@@ -137,7 +137,7 @@ class Person(Provenance):
         return ' '.join([self.gatorlink, self.first_name, self.last_name])
 
     def natural_key(self):
-        return (self.gatorlink, self.first_name, self.last_name)
+        return (self.id, self.gatorlink, self.first_name, self.last_name)
 
 
 class Project(Provenance):
@@ -175,7 +175,7 @@ class Project(Provenance):
         self.save(user)
 
     def natural_key(self):
-        return (self.title, self.description)
+        return (self.id, self.title, self.description)
 
 class Address(Provenance):
     person = models.ForeignKey(Person, on_delete=models.CASCADE, null=True, blank=True, related_name="business_address")
@@ -196,7 +196,8 @@ class Address(Provenance):
                            self.country])
 
     def natural_key(self):
-        return (self.address1,
+        return (self.id,
+                self.address1,
                 self.address2,
                 self.city,
                 self.zip_code,
