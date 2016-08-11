@@ -1,0 +1,15 @@
+
+{% for project in projects %}
+title {{ project.title }}
+<p>description</p>
+<p>collborator {% for collborator in collaborators %} collaborator {% endfor %} </p>
+<p>advisors {% for advisor in advisors %} advisor {% endfor %} </p>
+<p>{% for keyword in keywords %}keyword {% end for %}</p>
+<p>{% for bigaim in bigAims %}bigaim{% end for %}</p>
+<p>{% for clinical_area in clinc%}clinical_area</p>
+<p>safety_target</p>
+<p>clinical_setting</p>
+<p>proposed_start_date</p>
+<p>proposed_end_field</p>
+{% endfor %}
+
