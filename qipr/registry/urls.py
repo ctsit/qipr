@@ -4,4 +4,5 @@ from registry import api
 
 urlpatterns = [
     url(r'^(?:d=(?P<descriptors_json>\[.*\])/)?$', views.index, name='index'),
+    url(r'^project_info$',views.project_info, name='project_info'),
 ]
