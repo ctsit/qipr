@@ -178,13 +178,13 @@
     "created_by": 1,
     "last_modified_by": 1,
     "created": "2016-08-11T15:05:30Z",
-    "last_modified": "2016-08-11T15:06:57Z",
+    "last_modified": "2016-08-12T18:48:16Z",
     "approval_date": null,
-    "description": "",
+    "description": "We investigated different approachs to rehabilitating patients after undergoing cardiac surgery. We found that certain schedules and exercises were more condusive to decreasing cardiac events than others",
     "owner": 3,
     "proposed_end_date": null,
     "proposed_start_date": null,
-    "title": "test",
+    "title": "Decreasing risk of post surgical cardiac events",
     "advisor": [],
     "big_aim": [],
     "category": [],
@@ -210,13 +210,13 @@
     "created_by": 1,
     "last_modified_by": 1,
     "created": "2016-08-11T15:07:20Z",
-    "last_modified": "2016-08-11T15:07:59Z",
+    "last_modified": "2016-08-12T18:50:06Z",
     "approval_date": null,
-    "description": "",
+    "description": "Epilepsy is a highly prevalent neurological condition characterized by repeated unprovoked seizures with various etiologies. Although antiepileptic medications produce clinical improvement in most individuals, nearly a third of individuals have drug-resistant epilepsy that carries significant morbidity and mortality. There remains a need for non-invasive and more effective therapies for this population. Transcranial magnetic stimulation (TMS) uses electromagnetic coils to excite or inhibit neurons, with repetitive pulses at low-frequency producing an inhibitory effect that could conceivably reduce cortical excitability associated with epilepsy.",
     "owner": 2,
     "proposed_end_date": null,
     "proposed_start_date": null,
-    "title": "test2",
+    "title": "Transcranial magnetic stimulation for the treatment of epilepsy.",
     "advisor": [],
     "big_aim": [],
     "category": [],
@@ -352,6 +352,26 @@
     "datetime": "2016-08-11T15:07:59Z",
     "json_before": null,
     "json_after": "[{\"model\": \"registry.project\", \"pk\": 3, \"fields\": {\"created_by\": 1, \"last_modified_by\": 1, \"created\": \"2016-08-11T15:07:20.015Z\", \"last_modified\": \"2016-08-11T15:07:59.918Z\", \"approval_date\": null, \"description\": \"\", \"owner\": 2, \"proposed_end_date\": null, \"proposed_start_date\": null, \"title\": \"test2\", \"advisor\": [], \"big_aim\": [], \"category\": [], \"clinical_area\": [], \"clinical_setting\": [2], \"collaborator\": [3], \"keyword\": [2, 3], \"safety_target\": []}}]"
+  }
+},
+{
+  "model": "registry.audittrail",
+  "pk": 13,
+  "fields": {
+    "user": 1,
+    "datetime": "2016-08-12T18:48:16Z",
+    "json_before": "[{\"model\": \"registry.project\", \"pk\": 2, \"fields\": {\"created_by\": 1, \"last_modified_by\": 1, \"created\": \"2016-08-11T15:05:30Z\", \"last_modified\": \"2016-08-11T15:06:57Z\", \"approval_date\": null, \"description\": \"\", \"owner\": 3, \"proposed_end_date\": null, \"proposed_start_date\": null, \"title\": \"test\", \"advisor\": [], \"big_aim\": [], \"category\": [], \"clinical_area\": [], \"clinical_setting\": [1], \"collaborator\": [1, 2], \"keyword\": [1, 2], \"safety_target\": []}}]",
+    "json_after": "[{\"model\": \"registry.project\", \"pk\": 2, \"fields\": {\"created_by\": 1, \"last_modified_by\": 1, \"created\": \"2016-08-11T15:05:30Z\", \"last_modified\": \"2016-08-12T18:48:16.231Z\", \"approval_date\": null, \"description\": \"We investigated different approachs to rehabilitating patients after undergoing cardiac surgery. We found that certain schedules and exercises were more condusive to decreasing cardiac events than others\", \"owner\": 3, \"proposed_end_date\": null, \"proposed_start_date\": null, \"title\": \"Decreasing risk of post surgical cardiac events\", \"advisor\": [], \"big_aim\": [], \"category\": [], \"clinical_area\": [], \"clinical_setting\": [1], \"collaborator\": [1, 2], \"keyword\": [1, 2], \"safety_target\": []}}]"
+  }
+},
+{
+  "model": "registry.audittrail",
+  "pk": 14,
+  "fields": {
+    "user": 1,
+    "datetime": "2016-08-12T18:50:06Z",
+    "json_before": "[{\"model\": \"registry.project\", \"pk\": 3, \"fields\": {\"created_by\": 1, \"last_modified_by\": 1, \"created\": \"2016-08-11T15:07:20Z\", \"last_modified\": \"2016-08-11T15:07:59Z\", \"approval_date\": null, \"description\": \"\", \"owner\": 2, \"proposed_end_date\": null, \"proposed_start_date\": null, \"title\": \"test2\", \"advisor\": [], \"big_aim\": [], \"category\": [], \"clinical_area\": [], \"clinical_setting\": [2], \"collaborator\": [3], \"keyword\": [2, 3], \"safety_target\": []}}]",
+    "json_after": "[{\"model\": \"registry.project\", \"pk\": 3, \"fields\": {\"created_by\": 1, \"last_modified_by\": 1, \"created\": \"2016-08-11T15:07:20Z\", \"last_modified\": \"2016-08-12T18:50:06.439Z\", \"approval_date\": null, \"description\": \"Epilepsy is a highly prevalent neurological condition characterized by repeated unprovoked seizures with various etiologies. Although antiepileptic medications produce clinical improvement in most individuals, nearly a third of individuals have drug-resistant epilepsy that carries significant morbidity and mortality. There remains a need for non-invasive and more effective therapies for this population. Transcranial magnetic stimulation (TMS) uses electromagnetic coils to excite or inhibit neurons, with repetitive pulses at low-frequency producing an inhibitory effect that could conceivably reduce cortical excitability associated with epilepsy.\", \"owner\": 2, \"proposed_end_date\": null, \"proposed_start_date\": null, \"title\": \"Transcranial magnetic stimulation for the treatment of epilepsy.\", \"advisor\": [], \"big_aim\": [], \"category\": [], \"clinical_area\": [], \"clinical_setting\": [2], \"collaborator\": [3], \"keyword\": [2, 3], \"safety_target\": []}}]"
   }
 }
 ]
