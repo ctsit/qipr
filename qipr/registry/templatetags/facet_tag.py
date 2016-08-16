@@ -21,9 +21,10 @@ def facet_tag(facet_category, facet_form):
 def __get_facet_dict(model):
     facet_dict = {
         'filter_field': __get_filter_field(model),
-        'value': model.name,
+        'value': model.pk,
         'name': model.name,
         'label': model.name,
+        'is_checked': ''
     }
     return facet_dict
 

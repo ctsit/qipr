@@ -11,7 +11,8 @@
                 data-value="{{ facet.value }}"
                 id="{{ facet.name }}"
                 type="checkbox"
-                value="{{ facet.value }}" />
+                value="{{ facet.value }}"
+                {{ is_checked }}/>
             <label class="facet-tag__label"for="{{ facet.name }}">{{ facet.label }}</label>
         </li>
     {% endfor %}

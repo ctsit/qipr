@@ -176,4 +176,30 @@
         });
     });
 
+    var facets = document.querySelectorAll('.facet-tag__input');
+
+    Array.prototype.forEach.call(facets, function (node) {
+        node.addEventListener('click', function (event) {
+            var clicked = event.target,
+                descriptors = document.querySelector('#search-descriptors').textContent,
+                filterField = clicked.getAttribute('data-filterfield'),
+                value = clicked.getAttribute('data-value'),
+                data = {ff: filterField, v: value},
+                containsDescriptor;
+            descriptors = JSON.parse(descriptors);
+            containsDescriptor = descriptors.reduce(function(acc, item) {
+                return acc || (item.v === value && item.ff === filterField);
+            }, false);
+            if (containsDescriptor) {
+                descriptors = descriptors.filter(function (item) {
+                    return (item.v !== value && item.ff !== value);
+                });
+            } else {
+                descriptors.push(data);
+            }
+            window.location.pathname="/d=" + JSON.stringify(descriptors);
+        });
+    });
+
+
 }();

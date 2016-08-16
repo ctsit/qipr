@@ -13,5 +13,6 @@ def index(request, descriptors_json):
     context = {
         'projects': json.loads(api_data),
         'facet_form': FacetForm(),
+        'descriptors': descriptors_json or '[]',
     }
     return render(request, 'registry/index.html', context)
