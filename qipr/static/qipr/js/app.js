@@ -160,4 +160,20 @@
         });
     };
 
+    var facetDetailIcons = document.querySelectorAll('i.facet-tag__details');
+
+    Array.prototype.forEach.call(facetDetailIcons, function (node) {
+        node.addEventListener('click', function (event) {
+            var clicked = event.target,
+                siblingDetailList = clicked.parentElement.querySelector('ul.facet-tag__facet-list');
+            if (clicked.classList.contains('facet-tag__details--inactive')) {
+                clicked.classList.remove('facet-tag__details--inactive');
+                siblingDetailList.classList.remove('hidden');
+            } else {
+                clicked.classList.add('facet-tag__details--inactive');
+                siblingDetailList.classList.add('hidden');
+            }
+        });
+    });
+
 }();

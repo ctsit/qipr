@@ -111,13 +111,53 @@ nav {
 
 .facet-tag {
     color: white;
+    position: relative;
 }
 
-.facet-tag, label {
+.facet-tag__label {
     color: white;
+    text-indent: -.5rem;
 }
 
-.facet-input.filled-in:checked + label:after{
+.facet-tag__input.filled-in:checked + label:after{
      border: 2px solid #e28f41;
      background-color: #e28f41;
+}
+
+.facet-tag__item {
+    position: relative;
+    left: 1rem;
+}
+
+.facet-tag__category {
+    border-bottom: solid 2px white;
+    padding-bottom: 0.5rem;
+}
+
+.facet-tag__facet-list {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 3rem;
+    border: dotted thin white;
+}
+
+.facet-tag__details {
+    color: white;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: .5s;
+}
+
+.facet-tag__details--inactive {
+    transform: rotateZ(90deg);
+}
+
+.facet-tag__details--active {
+    transform: rotateZ(0deg);
+}
+
+.hidden {
+    display: none;
 }

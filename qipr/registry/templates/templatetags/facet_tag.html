@@ -1,17 +1,18 @@
 <div class="facet-tag">
-    <div class="facet-category">
+    <div class="facet-tag__category">
         {{ category }}
     </div>
-    <ul>
+    <i class="material-icons facet-tag__details facet-tag__details--inactive">details</i>
+    <ul class="facet-tag__facet-list hidden">
     {% for facet in facets %}
-        <li>
-            <input class="facet-input filled-in"
+        <li class="facet-tag__item">
+            <input class="facet-tag__input filled-in"
                 data-filterfield="{{ facet.filter_field }}"
                 data-value="{{ facet.value }}"
                 id="{{ facet.name }}"
                 type="checkbox"
                 value="{{ facet.value }}" />
-            <label for="{{ facet.name }}">{{ facet.label }}</label>
+            <label class="facet-tag__label"for="{{ facet.name }}">{{ facet.label }}</label>
         </li>
     {% endfor %}
     </ul>
