@@ -1,14 +1,31 @@
-<p>Title: {{title}} </p>
-<p>description</p> {{ description }}
-<p> PI : {{ Owner }} </p> 
-<p>Collaborators: {% for collaborator in collaborators %} {{ collaborator }} {% endfor %} </p>
-<p>Advisors : {% for advisor in advisors %} {{ advisor }} {% endfor %} </p>
-<p>Keywords :{% for keyword in keywords %} {{ keyword }} {% endfor %}</p>
-<p>BigAims {% for bigaim in bigaims %} {{ bigaim }} {% endfor %}</p>
-<p>Clinical Areas {% for clinical_area in clincal_areas %} {{ clinical_area }} {% endfor %}</p>
-<p>Safety_Target: {% for safety_target in safety_targets %} {{ safety_target }} {% endfor %}</p>
-<p>clinical_setting: {% for clincal_setting in clinical_settings %} {{ clinical_setting }} {% endfor %}</p>
-<p>proposed_start_date : {{ proposed_start_field }}</p>
-<p>proposed_end_field : {{ proposed_end_field }}</p>
+<html>
+    <head>
+        {% load staticfiles %}
+        <link href="{% static 'qipr/css/materialize.css' %}" type="text/css" rel="stylesheet"/>
+        <link href="{% static 'qipr/css/main.css' %}" type="text/css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="row gator-orange">
+            <div class="col s9">
+                <div class="card">
+                    <h2 class="card-content">Project Information</h2>
+                </div>
+                <p>Title: {{title}} </p>
+				<p>description: {{ description }}</p> 
+				<p> PI : {{ owner }} </p> 
+				<p>Collaborators: {% for collaborator in collaborators %} {{ collaborator }} {% endfor %} </p>
+				<p>Advisors : {% for advisor in advisors %} {{ advisor }} {% endfor %} </p>
+				<p>Keywords :{% for keyword in keywords %} {{ keyword }} {% endfor %}</p>
+				<p>BigAims {% for bigaim in bigaims %} {{ bigaim }} {% endfor %}</p>
+				<p>Clinical Areas {% for clinical_area in clincal_areas %} {{ clinical_area }} {% endfor %}</p>
+				<p>Safety_Target: {% for safety_target in safety_targets %} {{ safety_target }} {% endfor %}</p>
+				<p>clinical_setting: {% for clincal_setting in clinical_settings %} {{ clinical_setting }} {% endfor %}</p>
+				<p>proposed_start_date : {{ proposed_start_field }}</p>
+				<p>proposed_end_field : {{ proposed_end_field }}</p>
+            </div>
+        </div>
+    </body>
+</html>
 
-</div>
