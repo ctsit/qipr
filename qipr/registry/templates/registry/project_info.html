@@ -8,22 +8,26 @@
     </head>
     <body>
         <div class="row gator-orange">
-            <div class="col s9">
+            <div class="container">
                 <div class="card">
                     <h2 class="card-content">Project Information</h2>
                 </div>
-                <p>Title: {{title}} </p>
-				<p>description: {{ description }}</p> 
-				<p> PI : {{ owner }} </p> 
-				<p>Collaborators: {% for collaborator in collaborators %} {{ collaborator }} {% endfor %} </p>
-				<p>Advisors : {% for advisor in advisors %} {{ advisor }} {% endfor %} </p>
-				<p>Keywords :{% for keyword in keywords %} {{ keyword }} {% endfor %}</p>
-				<p>BigAims {% for bigaim in bigaims %} {{ bigaim }} {% endfor %}</p>
-				<p>Clinical Areas {% for clinical_area in clincal_areas %} {{ clinical_area }} {% endfor %}</p>
-				<p>Safety_Target: {% for safety_target in safety_targets %} {{ safety_target }} {% endfor %}</p>
-				<p>clinical_setting: {% for clincal_setting in clinical_settings %} {{ clinical_setting }} {% endfor %}</p>
-				<p>proposed_start_date : {{ proposed_start_field }}</p>
-				<p>proposed_end_field : {{ proposed_end_field }}</p>
+
+                <div class="card">
+					<p class="card-content">Title: {{title}} </p>
+					<p class="gator-blue"> {{title}} </p>
+					<p class="card-content">Description: {{ description }}</p>
+					<p class="card-content"> Principal Investigator : {{ owner }} </p>
+					<p class="card-content">Collaborators: {% for collaborator in collaborators %} {{ collaborator }} {% endfor %} </p>
+					<p class="card-content">Advisors : {% for advisor in advisors %} {{ advisor }} {% endfor %} </p>
+					<p class="card-content">Keywords :{% for keyword in keywords %} {{ keyword }} {% endfor %}</p>
+					<p class="card-content">BigAims: {% for bigaim in bigaims %} {{ bigaim }} {% endfor %}</p>
+					<p class="card-content">Clinical Areas: {% for clinical_area in clincal_areas %} {{ clinical_area }} {% endfor %}</p>
+					<p class="card-content">Safety_Target: {% for safety_target in safety_targets %} {{ safety_target }} {% endfor %}</p>
+					<p class="card-content">Clinical_Setting: {% for clincal_setting in clinical_settings %} {{ clinical_setting }} {% endfor %}</p>
+					<p class="card-content">Proposed Start Date : {{ proposed_start_field }}</p>
+					<p class="card-content">Proposed End Field : {{ proposed_end_field }}</p>
+					</div>
             </div>
         </div>
     </body>
