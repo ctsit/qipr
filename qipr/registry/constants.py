@@ -19,3 +19,13 @@ SESSION_VARS = {
     'first_name': 'first_name',
     'last_name': 'last_name',
 }
+
+filter_field_maps = {
+    'BigAim': 'big_aim',
+    'Category': 'category',
+    'ClinicalArea': 'clinical_area',
+    'ClinicalSetting': 'clinical_setting',
+    'ClinicalDepartment': 'clinical_department',
+    'Keyword': 'keyword',
+    'SafetyTarget': 'safety_target',
+}

@@ -108,3 +108,16 @@ nav {
     background-color: #6c9ac3;
     height: 100%;
 }
+
+.facet-tag {
+    color: white;
+}
+
+.facet-tag, label {
+    color: white;
+}
+
+.facet-input.filled-in:checked + label:after{
+     border: 2px solid #e28f41;
+     background-color: #e28f41;
+}
