@@ -178,6 +178,33 @@
 
     var facets = document.querySelectorAll('.facet-tag__input');
 
+    var descriptors = JSON.parse(document.querySelector('#search-descriptors').textContent);
+
+    function getFacetTagRoot(node) {
+        if (node.classList.contains('facet-tag')) {
+            return node;
+        } else {
+            return node.parentElement && getFacetTagRoot(node.parentElement);
+        }
+    }
+
+    descriptors.forEach(function (item) {
+        Array.prototype.forEach.call(facets, function (facet) {
+            var filterField = facet.getAttribute('data-filterfield'),
+                value = facet.getAttribute('data-value'),
+                root = getFacetTagRoot(facet),
+                icon,
+                facetList;
+            if (value === item.v && filterField === item.ff) {
+                facet.checked = true;
+                icon = root.querySelector('i');
+                facetList = root.querySelector('ul');
+                icon.classList.remove('facet-tag__details--inactive');
+                facetList.classList.remove('hidden');
+            }
+        });
+    });
+
     Array.prototype.forEach.call(facets, function (node) {
         node.addEventListener('click', function (event) {
             var clicked = event.target,
