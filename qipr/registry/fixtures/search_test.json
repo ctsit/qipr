@@ -126,9 +126,36 @@
     "contact_phone": null,
     "email_address": null,
     "first_name": "matt",
-    "gatorlink": "bigmatt",
+    "gatorlink": "",
     "last_login_time": null,
     "last_name": "mcconnel",
+    "user": null,
+    "webpage_url": null,
+    "expertise": [],
+    "organization": [],
+    "position": [],
+    "qi_interest": [],
+    "speciality": [],
+    "suffix": [],
+    "training": []
+  }
+},
+{
+  "model": "registry.person",
+  "pk": 4,
+  "fields": {
+    "created_by": 1,
+    "last_modified_by": 1,
+    "created": "2016-08-11T14:30:45Z",
+    "last_modified": "2016-08-11T14:30:45Z",
+    "account_expiration_time": null,
+    "business_phone": null,
+    "contact_phone": null,
+    "email_address": null,
+    "first_name": "Faroni",
+    "gatorlink": "",
+    "last_login_time": null,
+    "last_name": "d",
     "user": null,
     "webpage_url": null,
     "expertise": [],
@@ -217,6 +244,37 @@
     "proposed_end_date": null,
     "proposed_start_date": null,
     "title": "Transcranial magnetic stimulation for the treatment of epilepsy.",
+    "advisor": [],
+    "big_aim": [],
+    "category": [],
+    "clinical_area": [],
+    "clinical_setting": [
+      2
+    ],
+    "collaborator": [
+      3
+    ],
+    "keyword": [
+      2,
+      3
+    ],
+    "safety_target": []
+  }
+},
+{
+  "model": "registry.project",
+  "pk": 4,
+  "fields": {
+    "created_by": 1,
+    "last_modified_by": 1,
+    "created": "2016-08-11T15:07:20Z",
+    "last_modified": "2016-08-12T18:50:06Z",
+    "approval_date": null,
+    "description": "Children with major and severe congenital heart disease (CHD) undergoing noncardiac surgery are at increased risk of mortality. The objective of this study was to identify the predictors for in-hospital mortality, and to develop a risk stratification score that could be used to help decision making and the development of perioperative management guidelines.",
+    "owner": 4,
+    "proposed_end_date": null,
+    "proposed_start_date": null,
+    "title": "Development and Validation of a Risk Stratification Score for Children With Congenital Heart Disease Undergoing Noncardiac Surgery.",
     "advisor": [],
     "big_aim": [],
     "category": [],

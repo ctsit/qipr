@@ -7,25 +7,17 @@
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="row gator-orange">
+        <div class="row">
             <div class="container">
                 <div class="card">
-                    <h2 class="card-content">Project Information</h2>
+                    <h2 class="card-content gator-orange">Project Information</h2>
                 </div>
 
                 <div class="card">
-					<p class="card-content gator-blue"> Title : {{title}} </p>
-					<p class="card-content gator-blue">Description: {{ description }}</p>
-					<p class="card-content gator-blue"> Principal Investigator : {{ owner }} </p>
-					<p class="card-content gator-blue">Collaborators: {% for collaborator in collaborators %} {{ collaborator }} {% endfor %} </p>
-					<p class="card-content gator-blue">Advisors : {% for advisor in advisors %} {{ advisor }} {% endfor %} </p>
-					<p class="card-content gator-blue">Keywords :{% for keyword in keywords %} {{ keyword }} {% endfor %}</p>
-					<p class="card-content gator-blue">BigAims: {% for bigaim in bigaims %} {{ bigaim }} {% endfor %}</p>
-					<p class="card-content gator-blue">Clinical Areas: {% for clinical_area in clincal_areas %} {{ clinical_area }} {% endfor %}</p>
-					<p class="card-content gator-blue">Safety_Target: {% for safety_target in safety_targets %} {{ safety_target }} {% endfor %}</p>
-					<p class="card-content gator-blue">Clinical_Setting: {% for clincal_setting in clinical_settings %} {{ clinical_setting }} {% endfor %}</p>
-					<p class="card-content gator-blue">Proposed Start Date : {{ proposed_start_field }}</p>
-					<p class="card-content gator-blue">Proposed End Field : {{ proposed_end_field }}</p>
+					<p class="card-content"> <b>{{title}}</b> </p>
+					<p class="card-content"> <u> {{ owner }} </u> ,{% for collaborator in collaborators %} <u> {{ collaborator  }} </u> , {% endfor %} {% for advisor in advisors %} <u>{{ advisor }} </u> , {% endfor %} </p>
+					<p class="card-content"> {{ description }}</p>
+					<p class="card-content"> <b> Keywords : </b> </br>{% for keyword in keywords %} {{ keyword }} ,{% endfor %}</p>
 					</div>
             </div>
         </div>
