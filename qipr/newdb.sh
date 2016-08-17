@@ -14,6 +14,7 @@ cp migration_urls.py urls.py
 popd
 python3 manage.py makemigrations registry
 python3 manage.py migrate
+python3 manage.py loaddata ./registry/fixtures/*
 pushd qipr
 #Adding back the proper urls
 rm urls.py
