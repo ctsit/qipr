@@ -160,4 +160,73 @@
         });
     };
 
+    var facetDetailIcons = document.querySelectorAll('i.facet-tag__details');
+
+    Array.prototype.forEach.call(facetDetailIcons, function (node) {
+        node.addEventListener('click', function (event) {
+            var clicked = event.target,
+                siblingDetailList = clicked.parentElement.querySelector('ul.facet-tag__facet-list');
+            if (clicked.classList.contains('facet-tag__details--inactive')) {
+                clicked.classList.remove('facet-tag__details--inactive');
+                siblingDetailList.classList.remove('hidden');
+            } else {
+                clicked.classList.add('facet-tag__details--inactive');
+                siblingDetailList.classList.add('hidden');
+            }
+        });
+    });
+
+    var facets = document.querySelectorAll('.facet-tag__input');
+
+    var descriptors = JSON.parse(document.querySelector('#search-descriptors').textContent);
+
+    function getFacetTagRoot(node) {
+        if (node.classList.contains('facet-tag')) {
+            return node;
+        } else {
+            return node.parentElement && getFacetTagRoot(node.parentElement);
+        }
+    }
+
+    descriptors.forEach(function (item) {
+        Array.prototype.forEach.call(facets, function (facet) {
+            var filterField = facet.getAttribute('data-filterfield'),
+                value = facet.getAttribute('data-value'),
+                root = getFacetTagRoot(facet),
+                icon,
+                facetList;
+            if (value === item.v && filterField === item.ff) {
+                facet.checked = true;
+                icon = root.querySelector('i');
+                facetList = root.querySelector('ul');
+                icon.classList.remove('facet-tag__details--inactive');
+                facetList.classList.remove('hidden');
+            }
+        });
+    });
+
+    Array.prototype.forEach.call(facets, function (node) {
+        node.addEventListener('click', function (event) {
+            var clicked = event.target,
+                descriptors = document.querySelector('#search-descriptors').textContent,
+                filterField = clicked.getAttribute('data-filterfield'),
+                value = clicked.getAttribute('data-value'),
+                data = {ff: filterField, v: value},
+                containsDescriptor;
+            descriptors = JSON.parse(descriptors);
+            containsDescriptor = descriptors.reduce(function(acc, item) {
+                return acc || (item.v === value && item.ff === filterField);
+            }, false);
+            if (containsDescriptor) {
+                descriptors = descriptors.filter(function (item) {
+                    return (item.v !== value && item.ff !== value);
+                });
+            } else {
+                descriptors.push(data);
+            }
+            window.location.pathname="/d=" + JSON.stringify(descriptors);
+        });
+    });
+
+
 }();

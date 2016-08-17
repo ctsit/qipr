@@ -1,3 +1,6 @@
 <div>
-
+    {% load facet_tag %}
+    {% for facet_category in facet_form.facet_categories %}
+        {% facet_tag facet_category facet_form %}
+    {% endfor %}
 </div>

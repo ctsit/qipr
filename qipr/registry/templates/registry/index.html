@@ -11,6 +11,9 @@
             <div id="facets" class="col s3">
                 <h2>Facets</h2>
                 {% include 'registry/facets.html' %}
+                <div id="search-descriptors" class="hidden">
+                    {{ descriptors }}
+                </div>
             </div>
             <div id="project-list" class="col s9">
                 <div class="card">
@@ -19,5 +22,7 @@
                 {% include 'registry/project_list.html' %}
             </div>
         </div>
+        <script type="text/javascript" src="{% static 'qipr/js/materialize.js' %}"></script>
+        <script type="text/javascript" src="{% static 'qipr/js/app.js' %}"></script>
     </body>
 </html>
