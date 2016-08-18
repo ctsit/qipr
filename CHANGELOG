@@ -1,0 +1,38 @@
+## [0.1.0] - 2016-08-18
+### Summary
+* Initial release for prototype functionality. Includes search page with
+facets and project info page
+
+### Added
+ * Link to project info page (Patrick White)
+ * formatting of project info page and project view (Patrick White)
+ * apply fixtures automatically on provision (Patrick White)
+ * fixture for user so we can load fixtures (Patrick White)
+ * Adding one project to fixture and Adding styles to Project_Info Page (ndavuluri)
+ * Adding fixtures in newdb.sh (ndavuluri)
+ * Adding Styles (ndavuluri)
+ * Updating Project Info (ndavuluri)
+ * facets are checked if the descriptor is present in the url (Patrick White)
+ * Adding css for Project Info (ndavuluri)
+ * clicking facets changes what is searched (Patrick White)
+ * Adding Project Info (ndavuluri)
+ * clicking hides and shows the list of checkboxes (Patrick White)
+ * check boxes checking (Patrick White)
+ * working on the facets (Patrick White)
+ * Adding project Info Page (ndavuluri)
+ * Adding Project Info Page (ndavuluri)
+ * Project Info Page (ndavuluri)
+ * facets and project tag (Patrick White)
+ * Adding project Info (ndavuluri)
+ * project tag and get index rendering project info (Patrick White)
+ * got it filtering and giving back the right json (Patrick White)
+ * building out the workflow and routes (Patrick White)
+ * search testing data (Patrick White)
+ * got the models and signals working (Patrick White)
+ * setting up models for search (Patrick White)
+ * Add Search (ndavuluri)
+ * Adding views (ndavuluri)
+ * Adding constants file (ndavuluri)
+ * Adding static files (ndavuluri)
+ * Created new project QIPR for QIPR-Registry. Created new app registry. Setup vagrant for Registry (ndavuluri)
+ * Initial commit (Christopher P. Barnes)
