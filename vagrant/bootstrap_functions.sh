@@ -96,12 +96,19 @@ function migrate_application_database () {
     deactivate
 }
 
+function apply_fixtures() {
+    source venv/bin/activate
+    python3 manage.py loaddata ./approver/fixtures/user.json
+    python3 manage.py loaddata ./approver/fixtures/*
+}
+
 function install_qipr_fresh_vm () {
     pushd /var/www/qipr
         create_virtualenv
         pip_dependencies
         create_database
         migrate_application_database
+        apply_fixtures
         apache_setup
     popd
 }
@@ -111,5 +118,6 @@ function install_qipr() {
         create_virtualenv
         pip_dependencies
         migrate_application_database
+        apply_fixtures
     popd
 }
