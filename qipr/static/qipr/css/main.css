@@ -1,0 +1,170 @@
+.gator-orange {
+   background-color: #e28f41;
+}
+
+.gator-blue {
+   background-color: #6c9ac3;
+}
+nav {
+    /* gator blue */
+    background-color: #6c9ac3;
+}
+
+.btn {
+    /* gator orange */
+    background-color: #e28f41;
+}
+
+.cts-toast {
+    position: fixed;
+    width: 60%;
+    height: auto;
+    color: white;
+    background-color: #6e72ee;
+    bottom: 5px;
+    font-size: xx-large;
+    text-align: center;
+    transition: 1s;
+    left: 20%;
+    border-radius: 2px;
+    box-shadow: 3px 3px 3px #888888;
+    max-height: 0;
+}
+
+.cts-toast--active {
+    max-height: 3.2rem;
+}
+
+.project__title {
+    text-overflow: ellipsis;
+}
+
+.tag-holder {
+    display: inline-block;
+    margin: 0;
+}
+
+.tagbox__input {
+    position: relative;
+}
+
+.tag {
+    display: inline;
+    color: white;
+    margin-left: .1rem;
+    margin-right: .1rem;
+}
+
+.tag__container {
+    display: inline;
+    float: left;
+    background-color: #e28f41;
+    border-radius: 10px;
+    margin: .3rem;
+    padding: .2rem;
+    font-size: .8rem;
+    font-weight: 300;
+}
+
+.tag__delete {
+    position: relative;
+    padding-left: .1rem;
+    top: 0.255rem;
+    color: white;
+    font-weight: 900;
+    background: transparent !important;
+    display: inline;
+    font-family: 'Material Icons';
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+.question__text {
+    text-indent: 3.5rem;
+}
+
+.question__description {
+    text-indent: 3.5rem;
+}
+
+.tag_label {
+    float: left;
+    position: relative;
+    left: -.5rem;
+    margin: .3rem;
+    padding: .2rem;
+}
+
+.project_tag {
+    postion: initial;
+}
+
+#project-list {
+    background-color: #e28f41;
+    height: 100%
+}
+
+#facets {
+    background-color: #6c9ac3;
+    height: 100%;
+}
+
+.facet-tag {
+    color: white;
+    position: relative;
+}
+
+.facet-tag__label {
+    color: white;
+    text-indent: -.5rem;
+}
+
+.facet-tag__input.filled-in:checked + label:after{
+     border: 2px solid #e28f41;
+     background-color: #e28f41;
+}
+
+.facet-tag__item {
+    position: relative;
+    left: 1rem;
+}
+
+.facet-tag__category {
+    border-bottom: solid 2px white;
+    padding-bottom: 0.5rem;
+}
+
+.facet-tag__facet-list {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 3rem;
+    border: dotted thin white;
+}
+
+.facet-tag__details {
+    color: white;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: .5s;
+}
+
+.facet-tag__details--inactive {
+    transform: rotateZ(90deg);
+}
+
+.facet-tag__details--active {
+    transform: rotateZ(0deg);
+}
+
+.hidden {
+    display: none;
+}

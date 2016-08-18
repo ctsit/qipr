@@ -1,0 +1,11 @@
+<div class="project_tag card-content">
+    <a href="{% url 'registry:project_info' project_id=project_id %}">
+        <h4 data-id="{{ project_id }}">
+            {{ title }}
+        </h4>
+    </a>
+    <h5 data-id="{{ owner_id }}">PI: {{ owner_string }}</h5>
+    <p style="text-indent:3rem;">
+        {{ description }}
+    </p>
+</div>
