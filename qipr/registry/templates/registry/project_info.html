@@ -1,0 +1,26 @@
+<html>
+    <head>
+        {% load staticfiles %}
+        <link href="{% static 'qipr/css/materialize.css' %}" type="text/css" rel="stylesheet"/>
+        <link href="{% static 'qipr/css/main.css' %}" type="text/css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="row">
+            <div class="container">
+                <div class="card">
+                    <h2 class="card-content gator-orange">Project Information</h2>
+                </div>
+
+                <div class="card">
+					<p class="card-content"> <b>{{title}}</b> </p>
+					<p class="card-content"> <u> {{ owner }} </u> ,{% for collaborator in collaborators %} <u> {{ collaborator  }} </u> , {% endfor %} {% for advisor in advisors %} <u>{{ advisor }} </u> , {% endfor %} </p>
+					<p class="card-content"> {{ description }}</p>
+					<p class="card-content"> <b> Keywords : </b> </br>{% for keyword in keywords %} {{ keyword }} ,{% endfor %}</p>
+					</div>
+            </div>
+        </div>
+    </body>
+</html>
+
