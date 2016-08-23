@@ -23,7 +23,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.trigger.after [:up] do
     if Vagrant::Util::Platform.darwin?
-      system("open -a 'Google Chrome.app' http://localhost:8000")
+      system("open -a 'Google Chrome.app' http://localhost:9080")
     end
   end
 
