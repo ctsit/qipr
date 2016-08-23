@@ -98,8 +98,9 @@ function migrate_application_database () {
 
 function apply_fixtures() {
     source venv/bin/activate
-    python3 manage.py loaddata ./approver/fixtures/user.json
-    python3 manage.py loaddata ./approver/fixtures/*
+    python3 manage.py loaddata ./registry/fixtures/user.json
+    python3 manage.py loaddata ./registry/fixtures/testuser.json
+    python3 manage.py loaddata ./registry/fixtures/testdata.json
 }
 
 function install_qipr_fresh_vm () {
