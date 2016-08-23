@@ -142,10 +142,7 @@ nav {
 }
 
 .facet-tag__facet-list {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    max-height: 3rem;
-    border: dotted thin white;
+    overflow-x: wrap;
 }
 
 .facet-tag__details {

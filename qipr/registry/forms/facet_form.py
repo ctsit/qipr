@@ -6,7 +6,6 @@ facet_Models = [
     Category,
     ClinicalArea,
     ClinicalSetting,
-    ClinicalDepartment,
     Keyword,
     SafetyTarget,
 ]

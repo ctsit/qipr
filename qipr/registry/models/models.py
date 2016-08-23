@@ -1,17 +1,9 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-
 from registry.constants import STATE_CHOICES, COUNTRY_CHOICES
+
 from registry import utils
-
-class TagNaturalKey(models.Model):
-
-    def natural_key(self):
-        return (self.id, self.name, self.description or '')
-
-    class Meta:
-        abstract = True
 
 class TaggedWithName(models.Model):
     tag_property_name = 'name'
@@ -42,10 +34,11 @@ class Provenance(models.Model):
         self.last_modified_by = last_modified_by
         super(Provenance, self).delete(*args, **kwargs)
 
+
     class Meta:
         abstract = True
 
-class Training(Provenance, NamePrint, TaggedWithName, TagNaturalKey):
+class Training(Provenance, NamePrint, TaggedWithName):
     name = models.CharField(max_length=200)
 
 class Organization(Provenance):
@@ -54,63 +47,57 @@ class Organization(Provenance):
     def __str__(self):
         return self.org_name
 
-    def natural_key(self):
-        return (self.org_name,)
-
-class BigAim(Provenance, NamePrint, TaggedWithName, TagNaturalKey):
-    name = models.CharField(max_length=100)
-    description = models.CharField(max_length=100, default='')
-    sort_order = models.IntegerField()
-
-class Category(Provenance, NamePrint, TaggedWithName, TagNaturalKey):
+class Speciality(Provenance, NamePrint, TaggedWithName):
     name = models.CharField(max_length=50)
-    description = models.CharField(max_length=100, default='')
+    description = models.CharField(max_length=100)
 
-class ClinicalArea(Provenance, NamePrint, TaggedWithName, TagNaturalKey):
+class Position(Provenance, NamePrint, TaggedWithName):
     name = models.CharField(max_length=50)
-    description = models.CharField(max_length=100, default='')
+    description = models.CharField(max_length=100)
 
-class ClinicalDepartment(Provenance, NamePrint, TaggedWithName, TagNaturalKey):
-    name = models.CharField(max_length=100)
-    description = models.CharField(max_length=100, default='')
-    sort_order = models.IntegerField()
-
-class ClinicalSetting(Provenance, NamePrint, TaggedWithName, TagNaturalKey):
+class Keyword(Provenance, NamePrint, TaggedWithName):
     name = models.CharField(max_length=50)
-    description = models.CharField(max_length=100, default='')
+    description = models.CharField(max_length=100)
 
-class Expertise(Provenance, NamePrint, TaggedWithName, TagNaturalKey):
+class SafetyTarget(Provenance, NamePrint, TaggedWithName):
     name = models.CharField(max_length=50)
-    description = models.CharField(max_length=100, default='')
+    description = models.CharField(max_length=100)
 
-class FocusArea(Provenance, NamePrint, TaggedWithName, TagNaturalKey):
-    name = models.CharField(max_length=100)
-    description = models.CharField(max_length=100, default='')
-    sort_order = models.IntegerField()
-
-class Keyword(Provenance, NamePrint, TaggedWithName, TagNaturalKey):
+class ClinicalArea(Provenance, NamePrint, TaggedWithName):
     name = models.CharField(max_length=50)
-    description = models.CharField(max_length=100, default='')
+    description = models.CharField(max_length=100)
 
-class Position(Provenance, NamePrint, TaggedWithName, TagNaturalKey):
+class ClinicalSetting(Provenance, NamePrint, TaggedWithName):
     name = models.CharField(max_length=50)
-    description = models.CharField(max_length=100, default='')
+    description = models.CharField(max_length=100)
 
-class QI_Interest(Provenance, NamePrint, TaggedWithName, TagNaturalKey):
-    name = models.CharField(max_length=50)
-    description = models.CharField(max_length=100, default='')
-
-class SafetyTarget(Provenance, NamePrint, TaggedWithName, TagNaturalKey):
-    name = models.CharField(max_length=50)
-    description = models.CharField(max_length=100, default='')
-
-class Speciality(Provenance, NamePrint, TaggedWithName, TagNaturalKey):
-    name = models.CharField(max_length=50)
-    description = models.CharField(max_length=100, default='')
-
-class Suffix(Provenance, NamePrint, TaggedWithName, TagNaturalKey):
+class Suffix(Provenance, NamePrint, TaggedWithName):
     name = models.CharField(max_length=20)
-    description = models.CharField(max_length=100, default='')
+    description = models.CharField(max_length=100)
+
+class Expertise(Provenance, NamePrint, TaggedWithName):
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=100)
+
+class QI_Interest(Provenance, NamePrint, TaggedWithName):
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=100)
+
+class Category(Provenance, NamePrint, TaggedWithName):
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=100)
+
+class BigAim(Provenance, NamePrint, TaggedWithName):
+    name = models.CharField(max_length=100)
+    sort_order = models.IntegerField(null=True)
+
+class FocusArea(Provenance, NamePrint, TaggedWithName):
+    name = models.CharField(max_length=100)
+    sort_order = models.IntegerField(null=True)
+
+class ClinicalDepartment(Provenance, NamePrint, TaggedWithName):
+    name = models.CharField(max_length=100)
+    sort_order = models.IntegerField(null=True)
 
 class Person(Provenance):
     account_expiration_time = models.DateTimeField(null=True)
@@ -134,10 +121,7 @@ class Person(Provenance):
     tag_property_name = 'email_address'
 
     def __str__(self):
-        return ' '.join([self.gatorlink, self.first_name, self.last_name])
-
-    def natural_key(self):
-        return (self.id, self.gatorlink, self.first_name, self.last_name)
+        return ' '.join([str(item) for item in [self.first_name, self.last_name, self.email_address]])
 
 
 class Project(Provenance):
@@ -170,12 +154,12 @@ class Project(Provenance):
             return False
         return True
 
+    def is_approved(self):
+        return self.approval_date or self.in_registry
+
     def approve(self, user):
         self.approval_date = timezone.now()
         self.save(user)
-
-    def natural_key(self):
-        return (self.id, self.title, self.description)
 
 class Address(Provenance):
     person = models.ForeignKey(Person, on_delete=models.CASCADE, null=True, blank=True, related_name="business_address")
@@ -194,13 +178,4 @@ class Address(Provenance):
                            self.zip_code,
                            self.state,
                            self.country])
-
-    def natural_key(self):
-        return (self.id,
-                self.address1,
-                self.address2,
-                self.city,
-                self.zip_code,
-                self.state,
-                self.country) + self.person.natural_key() + self.organization.natural_key()
 
