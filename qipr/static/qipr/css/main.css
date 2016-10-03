@@ -49,8 +49,46 @@ nav .brand-logo {
 
 
 .btn {
-    /* gator orange */
-    background-color: #e28f41;
+    background-color: rgba(226, 143, 65, 0.29);
+}
+
+
+
+.btn:hover, .btn-large:hover, button:focus {
+    background-color: white;
+    color: orange;
+}
+
+.btn__project {
+    border: white 2px solid;
+ /*   width: 200px;
+    height: 56px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 27px 0 0 -146px;*/
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    height:3.5rem;
+}
+
+.section__orange {
+    display: inline-block;
+    font-size: 2.5rem;
+    padding: 5rem 1rem;
+    text-align: center;
+}
+
+.section__orange-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2.5rem !important;
+}
+
+.section__orange-padding {
+    padding: 5rem 0 !important;
 }
 
 .cts-toast {
@@ -231,6 +269,12 @@ nav .brand-logo {
     padding: 0 1rem;
 }
 
+@media screen and (min-width: 500px) {
+    .section__orange {
+        font-size:2.8rem;
+    }
+}
+
 @media only screen and (min-width: 650px) {
     nav .brand-logo {
         left: 50%;
@@ -252,3 +296,9 @@ nav .brand-logo {
     }
 }
 
+
+@media screen and (min-width: 1085px) {
+    .section__orange {
+        font-size:3.5rem;
+    }
+}
