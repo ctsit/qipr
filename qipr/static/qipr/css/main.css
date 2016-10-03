@@ -195,7 +195,7 @@ nav {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height:44rem;
+    height:60rem;
 }
 
 .bg__ltblue {
@@ -203,8 +203,29 @@ nav {
     opacity: 0.89;
     /*padding-top: 5rem !important;
     padding-bottom: 5rem !important;*/
-    margin-left: 6rem;
+    margin-left: 1rem;
     position: relative;
     top: 5rem;
+    max-width: 1400px;
+}
+
+.mission_text {
+    text-align: justify;
+    padding: 0 1rem;
+}
+
+@media screen and (min-width: 993px) {
+    .mission_title {
+        max-width:412px;
+        padding-left: 1rem;
+    }
+    .mission_body {
+    max-width: 57rem;
+    padding-bottom: 2rem;
+    }
+
+    .bg__ltblue {
+    margin-left: 3rem;
+    }
 }
 
