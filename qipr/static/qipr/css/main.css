@@ -108,12 +108,14 @@ nav {
 
 #project-list {
     background-color: #e28f41;
-    height: 100%
+    min-height: 100%;
+    height: auto;
 }
 
 #facets {
     background-color: #6c9ac3;
-    height: 100%;
+    min-height: 100%;
+    height: auto;
 }
 
 .facet-tag {
