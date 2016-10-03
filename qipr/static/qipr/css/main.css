@@ -91,6 +91,14 @@ nav .brand-logo {
     padding: 5rem 0 !important;
 }
 
+.section__video {
+    min-height:50rem;
+}
+.video__alignment {
+    margin-right:3rem;
+    margin-top:1rem;
+}
+
 .cts-toast {
     position: fixed;
     width: 60%;
