@@ -6,8 +6,25 @@
    background-color: #6c9ac3;
 }
 nav {
-    /* gator blue */
-    background-color: #6c9ac3;
+    background-color: #004d9a;
+}
+
+nav ul a {
+    padding-left:.5rem;
+    padding-right:.5rem;
+}
+
+.nav__logo {
+    height: 90%;
+    padding-left: 0.3rem;
+}
+
+.search {
+ background-color: rgba(0,0,0,0.4);
+}
+
+nav .brand-logo {
+    left: 21%;
 }
 
 .font__opensans {
@@ -212,6 +229,12 @@ nav {
 .mission_text {
     text-align: justify;
     padding: 0 1rem;
+}
+
+@media only screen and (min-width: 650px) {
+    nav .brand-logo {
+        left: 50%;
+    }
 }
 
 @media screen and (min-width: 993px) {
