@@ -253,12 +253,12 @@ nav .brand-logo {
 }
 
 .bg__img {
-    background: url("../img/hero_img-doctor.jpg") no-repeat top center fixed;
+    background: url("../img/hero_img-doctor.jpg") no-repeat bottom center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height:60rem;
+    height:55rem;
 }
 
 .bg__ltblue {
