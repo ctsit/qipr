@@ -405,6 +405,11 @@ p {
     .box-white {
         height: 388px;
     }
+
+    /*Featured Projects Section*/
+    .section__projects {
+        height:48rem;
+    }
 }
 
 @media screen and (min-width: 1062px) {
