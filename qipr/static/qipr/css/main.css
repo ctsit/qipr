@@ -27,6 +27,10 @@ nav .brand-logo {
     left: 21%;
 }
 
+.margin__zero {
+    margin-top:0 !important;
+}
+
 p {
     font-family: 'Open Sans', sans-serif;
 }
@@ -301,7 +305,8 @@ p {
 }
 
 .fcm__titles {
-    font-size:3rem;
+    font-size: 3rem;
+    padding-top: 2rem;
 }
 
 .create__img {
@@ -332,6 +337,7 @@ p {
 
 .search__icon {
     color:#999;
+    font-size:6rem !important;
 }
 
 .search__icon:hover {
@@ -351,7 +357,7 @@ p {
         width: 32% !important;
         margin: 1%;
         border:5px solid #e8e8e8;
-        height: 347px;
+        height: 380px;
     }
 
     .bg__img-graphs {
@@ -359,7 +365,7 @@ p {
     }
 
     .create__img {
-    max-width: 100% !important;
+    max-width:100% !important;
     }
 
 }
@@ -397,13 +403,13 @@ p {
     }
     
     .box-white {
-        height: 365px;
+        height: 388px;
     }
 }
 
 @media screen and (min-width: 1062px) {
     .box-white {
-        height: 347px;
+        height: 374px;
     }
 }
 
@@ -413,3 +419,9 @@ p {
         font-size:3.5rem;
     }
 }
+
+@media screen and (min-width: 1600px) {
+    .create__img {
+        max-width: 300px !important;
+    }
+    }
