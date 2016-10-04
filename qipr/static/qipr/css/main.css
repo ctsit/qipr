@@ -261,6 +261,15 @@ nav .brand-logo {
     height:55rem;
 }
 
+.bg__img-graphs {
+    background: url("../img/hero_img-charts.jpg") no-repeat bottom center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height:55rem;
+}
+
 .bg__ltblue {
     background-color: #43b1e5;
     opacity: 0.89;
