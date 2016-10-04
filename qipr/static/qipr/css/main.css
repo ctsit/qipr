@@ -99,7 +99,7 @@ p {
 }
 
 .section__video {
-    min-height: 40rem;
+    height: 40rem;
 }
 
 .video__alignment {
@@ -368,13 +368,13 @@ p {
     .bg__img-graphs {
     height:75rem;
     }
-
-    .section__video {
-    min-height:50rem;
-    }
 }
 
 @media screen and (min-width: 601px) {
+    .section__video {
+    height: 56rem;
+    }
+
     .box-white {
         width: 32% !important;
         margin: 1%;
@@ -407,10 +407,14 @@ p {
     }
 }
 @media screen and (min-width: 993px) {
+    .section__video {
+    height: 40rem;
+    }
     .mission_title {
         max-width:412px;
         padding-left: 1rem;
     }
+    
     .mission_body {
     max-width: 57rem;
     padding-bottom: 2rem;
