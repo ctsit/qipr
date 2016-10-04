@@ -27,6 +27,9 @@ nav .brand-logo {
     left: 21%;
 }
 
+p {
+    font-family: 'Open Sans', sans-serif;
+}
 .font__opensans {
     font-family: 'Open Sans', sans-serif;
 }
@@ -252,36 +255,10 @@ nav .brand-logo {
     display: none;
 }
 
-.bg__img {
-    background: url("../img/hero_img-doctor.jpg") no-repeat bottom center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height:55rem;
-}
-
-.bg__img-graphs {
-    background: url("../img/hero_img-charts.jpg") no-repeat bottom center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height:55rem;
-}
-
-.box-white {
-    background-color: white;
-    border: 10px solid #e8e8e8;
-    width: 100% !important;
-    margin-bottom:1.5rem;
-}
-
+/*Top Hero Image Section*/
 .bg__ltblue {
     background-color: #43b1e5;
     opacity: 0.89;
-    /*padding-top: 5rem !important;
-    padding-bottom: 5rem !important;*/
     margin-left: 1rem;
     position: relative;
     top: 5rem;
@@ -293,6 +270,76 @@ nav .brand-logo {
     padding: 0 1rem;
 }
 
+.bg__img {
+    background: url("../img/hero_img-doctor.jpg") no-repeat bottom center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height:55rem;
+}
+
+/*Find Manage Create Section*/
+.bg__img-graphs {
+    background: url("../img/hero_img-charts.jpg") no-repeat bottom center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height:75rem;
+}
+
+.box-white {
+    background-color: white;
+    border: 10px solid #e8e8e8;
+    width: 100% !important;
+    margin-bottom:1.5rem;
+}
+
+.fcm__text-box {
+    font-size:1.2rem;
+}
+
+.fcm__titles {
+    font-size:3rem;
+}
+
+.create__img {
+    padding: 0 2rem 1rem;
+    max-width:300px !important;
+}
+
+.manage__btn {
+    margin: .75rem 0;
+    background-color: #999;
+    font-size: 1.1rem;
+    padding: .25rem 1rem .6rem;
+    line-height: 1.1rem;
+    width: 100%;
+    white-space: normal;
+    height: 4.5rem;
+}
+
+.manage__btn:hover, .manage__btn:focus {
+    color: #ababab;
+}
+
+.manage__icon {
+    font-size: 1.5rem !important;
+    position: relative;
+    top: .35rem;
+}
+
+.search__icon {
+    color:#999;
+}
+
+.search__icon:hover {
+    color:orange;
+    cursor: pointer;
+}
+
+
 @media screen and (min-width: 500px) {
     .section__orange {
         font-size:2.8rem;
@@ -301,9 +348,20 @@ nav .brand-logo {
 
 @media screen and (min-width: 601px) {
     .box-white {
-        width: 30% !important;
-        margin: 3%;
+        width: 32% !important;
+        margin: 1%;
+        border:5px solid #e8e8e8;
+        height: 347px;
     }
+
+    .bg__img-graphs {
+    height: 45rem;
+    }
+
+    .create__img {
+    max-width: 100% !important;
+    }
+
 }
 
 @media only screen and (min-width: 650px) {
@@ -312,6 +370,14 @@ nav .brand-logo {
     }
 }
 
+
+@media screen and (min-width: 800px) {
+    .box-white {
+        width: 30% !important;
+        margin: 3%;
+        border:10px solid #e8e8e8;
+    }
+}
 @media screen and (min-width: 993px) {
     .mission_title {
         max-width:412px;
@@ -324,6 +390,20 @@ nav .brand-logo {
 
     .bg__ltblue {
     margin-left: 3rem;
+    }
+
+    .fcm__titles {
+    font-size:3.56rem;
+    }
+    
+    .box-white {
+        height: 365px;
+    }
+}
+
+@media screen and (min-width: 1062px) {
+    .box-white {
+        height: 347px;
     }
 }
 
