@@ -99,8 +99,9 @@ p {
 }
 
 .section__video {
-    min-height:50rem;
+    min-height: 40rem;
 }
+
 .video__alignment {
     margin-right:3rem;
     margin-top:1rem;
@@ -280,7 +281,7 @@ p {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height:55rem;
+    height:70rem;
 }
 
 /*Find Manage Create Section*/
@@ -290,7 +291,7 @@ p {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height:75rem;
+    height:80rem;
 }
 
 .box-white {
@@ -345,10 +346,31 @@ p {
     cursor: pointer;
 }
 
+.input-field {
+    width: 11rem;
+}
+
+@media screen and (min-width: 400px) {
+    .input-field {
+        width: 16rem;
+    }
+}
 
 @media screen and (min-width: 500px) {
     .section__orange {
         font-size:2.8rem;
+    }
+
+    .bg__img {
+    height:55rem;
+    }
+
+    .bg__img-graphs {
+    height:75rem;
+    }
+
+    .section__video {
+    min-height:50rem;
     }
 }
 
