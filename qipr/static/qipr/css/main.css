@@ -192,8 +192,17 @@ p {
     postion: initial;
 }
 
+.project_tag a {
+    color: #004d9a;
+}
+
+.project_tag a:hover {
+    color: #47b1e5;
+}
+
 #project-list {
-    background-color: #e28f41;
+    background-image: url("../img/climpek.png");
+    background-color: #f3fbff;
     min-height: 100%;
     height: auto;
 }
@@ -269,6 +278,11 @@ footer.page-footer {
 
 .footer__logo--uf {
     padding: .5rem 2rem .8rem;
+}
+
+footer.page-footer .footer-copyright {
+    color: #004d9a;
+    font-weight: 400;
 }
 
 /*Top Hero Image Section*/
