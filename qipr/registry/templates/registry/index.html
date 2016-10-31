@@ -7,21 +7,72 @@
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     </head>
     <body>
+        <nav>
+                <div class="nav-wrapper bg-blue">
+                    <a id="icon-container" class="icon" href="#">
+                        <img class="nav__logo" src="{% static 'qipr/img/qipr_outlines.svg' %}">
+                    </a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse hide-on-med-and-up"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-small-only">
+                        <li class="nav_li"><a href="#">Dashboard</a></li>
+                        <li class="nav_li"><a href="">Search Registry</a></li>
+                        <li class="nav_li"><a href="">About</a></li>
+                        <li><a class="btn btn__logout" href="#">Logout</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a class="" href="#">Dashboard</a></li>
+                        <li><a class="" href="">Search Registry</a></li>
+                        <li><a class="" href="">About</a></li>
+                        <li><a class="btn" href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
         <div class="row">
-            <div id="facets" class="col s3">
+            <div id="facets" class="col s12 m3">
                 <h2 class="font__roboto">Facets</h2>
                 {% include 'registry/facets.html' %}
                 <div id="search-descriptors" class="hidden">
                     {{ descriptors }}
                 </div>
             </div>
-            <div id="project-list" class="col s9">
+            <div id="project-list" class="col s12 m9">
                 <div class="card">
                     <h2 class="card-content font__roboto">Projects</h2>
                 </div>
                 {% include 'registry/project_list.html' %}
             </div>
         </div>
+
+<footer class="page-footer grey lighten-3">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m4 center">
+                <div class="footer__logo--height">
+                    <img src="{% static 'qipr/img/UF-Health-logo.png' %}" class="responsive-img footer__logo--ufhealth">
+                </div>
+                <p>The UF Health Sebastian Ferrero Office of Clinical Quality & Patient Safety</p>
+            </div>
+            <div class="col s12 m4 center">
+                <div class="footer__logo--height">
+                    <img src="{% static 'qipr/img/University_of_Florida_Logo.png' %}" class="responsive-img footer__logo--uf">
+                </div>
+                <p>The University of Florida Clinical and Translational Science Institute</p>
+            </div>
+            <div class="col s12 m4 center">
+                <h5>Contact The QIPR Team</h5>
+                <p>Email: <a href="mailto:someemail@shands.ufl.edu?subject=QIPR Inquiry">someemail@shands.ufl.edu</a></p>
+                <p>Phone: <a href="tel:3522650002">352-265-0002</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-copyright">
+        <div class="container center">
+            © 2016 QIPR Approver {{ version_number }}
+        </div>
+    </div>
+</footer>
+
         <script type="text/javascript" src="{% static 'qipr/js/materialize.js' %}"></script>
         <script type="text/javascript" src="{% static 'qipr/js/app.js' %}"></script>
     </body>
