@@ -236,7 +236,7 @@ p {
 .facet-tag__category {
     border-bottom: solid 2px #444;;
     padding: 0.5rem 0;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .facet-tag__facet-list {
@@ -287,7 +287,7 @@ footer.page-footer {
 footer.page-footer .footer-copyright {
     color: #004d9a;
     font-weight: 400;
-    background-color: rgba(226, 143, 65, 0.27);
+    background-color: rgba(165, 165, 165, 0.27);
 }
 
 /*Top Hero Image Section*/
