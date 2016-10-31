@@ -7,27 +7,31 @@
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     </head>
     <body>
+
+        <!-- THIS SECTION WILL GO IN THE LAYOUT TEMPLATE -->
         <nav>
-                <div class="nav-wrapper bg-blue">
-                    <a id="icon-container" class="icon" href="#">
-                        <img class="nav__logo" src="{% static 'qipr/img/qipr_outlines.svg' %}">
-                    </a>
-                    <a href="#" data-activates="mobile-demo" class="button-collapse hide-on-med-and-up"><i class="material-icons">menu</i></a>
-                    <ul class="right hide-on-small-only">
-                        <li class="nav_li"><a href="#">Dashboard</a></li>
-                        <li class="nav_li"><a href="">Search Registry</a></li>
-                        <li class="nav_li"><a href="">About</a></li>
-                        <li><a class="btn btn__logout" href="#">Logout</a></li>
-                    </ul>
-                    <ul class="side-nav" id="mobile-demo">
-                        <li><a class="" href="#">Dashboard</a></li>
-                        <li><a class="" href="">Search Registry</a></li>
-                        <li><a class="" href="">About</a></li>
-                        <li><a class="btn" href="#">Logout</a></li>
-                    </ul>
-                </div>
-            </nav>
-        <div class="row">
+            <div class="nav-wrapper bg-blue">
+                <a id="icon-container" class="icon" href="#">
+                    <img class="nav__logo" src="{% static 'qipr/img/qipr_outlines.svg' %}">
+                </a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse hide-on-med-and-up"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-small-only">
+                    <li class="nav_li"><a href="#">Dashboard</a></li>
+                    <li class="nav_li"><a href="">Search Registry</a></li>
+                    <li class="nav_li"><a href="">About</a></li>
+                    <li><a class="btn btn__logout" href="#">Logout</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a class="" href="#">Dashboard</a></li>
+                    <li><a class="" href="">Search Registry</a></li>
+                    <li><a class="" href="">About</a></li>
+                    <li><a class="btn" href="#">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- END SECTION THAT WILL GO IN THE LAYOUT TEMPLATE -->
+
+        <div class="row registry__body--container">
             <div id="facets" class="col s12 m3">
                 <h2 class="font__roboto">Facets</h2>
                 {% include 'registry/facets.html' %}
@@ -43,6 +47,7 @@
             </div>
         </div>
 
+<!-- THIS SECTION WILL GO IN THE LAYOUT TEMPLATE -->
 <footer class="page-footer grey lighten-3">
     <div class="container">
         <div class="row">
@@ -72,6 +77,7 @@
         </div>
     </div>
 </footer>
+<!-- END SECTION THAT WILL GO IN THE LAYOUT TEMPLATE -->
 
         <script type="text/javascript" src="{% static 'qipr/js/materialize.js' %}"></script>
         <script type="text/javascript" src="{% static 'qipr/js/app.js' %}"></script>

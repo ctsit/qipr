@@ -69,13 +69,6 @@ p {
 
 .btn__project {
     border: white 2px solid;
- /*   width: 200px;
-    height: 56px;
-    padding: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: 27px 0 0 -146px;*/
     font-size: 1.6rem;
     line-height: 1.6rem;
     height:3.5rem;
@@ -260,6 +253,15 @@ p {
 .hidden {
     display: none;
 }
+
+/*Footer Section*/
+footer.page-footer {
+     margin-top: 0; 
+}
+
+.registry__body--container {
+    margin-bottom: 0;
+}    
 
 /*Top Hero Image Section*/
 .bg__ltblue {
