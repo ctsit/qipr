@@ -261,7 +261,15 @@ footer.page-footer {
 
 .registry__body--container {
     margin-bottom: 0;
-}    
+} 
+
+.footer__logo--ufhealth {
+    padding: 0 3rem;
+}   
+
+.footer__logo--uf {
+    padding: .5rem 2rem .8rem;
+}
 
 /*Top Hero Image Section*/
 .bg__ltblue {
