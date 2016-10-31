@@ -34,6 +34,7 @@ nav .brand-logo {
 p {
     font-family: 'Open Sans', sans-serif;
 }
+
 .font__opensans {
     font-family: 'Open Sans', sans-serif;
 }
@@ -205,18 +206,18 @@ p {
 }
 
 #facets {
-    background-color: #6c9ac3;
+    background-color: white;
     min-height: 100%;
     height: auto;
 }
 
 .facet-tag {
-    color: white;
+    color: black;
     position: relative;
 }
 
 .facet-tag__label {
-    color: white;
+    color: #444;
     text-indent: -.5rem;
 }
 
@@ -231,7 +232,7 @@ p {
 }
 
 .facet-tag__category {
-    border-bottom: solid 2px white;
+    border-bottom: solid 2px #444;;
     padding-bottom: 0.5rem;
 }
 
@@ -240,7 +241,7 @@ p {
 }
 
 .facet-tag__details {
-    color: white;
+    color: #444;
     font-size: 1.5rem;
     position: absolute;
     top: 0;
