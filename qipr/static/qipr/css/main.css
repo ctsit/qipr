@@ -200,6 +200,45 @@ p {
     color: #47b1e5;
 }
 
+.project_tag a h4 {
+    font-weight: 300;
+}
+
+.registry__body--container .dashboard_search {
+    margin: 1.5rem 0;
+    border: 1pt #ddd solid;
+    height: 3rem;
+    width: 100%;
+}
+
+.input-field form .dashboard_search-input {
+    border-bottom: none;
+    height: 2rem;
+    margin-bottom: 0;
+    padding: .5rem 1rem;
+    float: left;
+    width: 20rem;
+    font-size: 1.5rem;
+}
+
+.input-field input[type=search]:focus {
+    background-color: transparent;
+}
+
+.dashboard__search--projects {
+    float: right;
+    height: 100%;
+    width: 3rem;
+    border-width: 0;
+    background-color: #f2f2f2;
+    font-size: 1.5rem;
+}
+
+.dashboard__search--projects:focus {
+    background-color: #d0d0d0;
+    outline-width: 0;
+}
+
 #project-list {
     background-image: url("../img/climpek.png");
     background-color: #f3fbff;
@@ -422,6 +461,13 @@ footer.page-footer .footer-copyright {
 
 }
 
+@media only screen and (min-width: 601px) {
+    .input-field form .dashboard_search-input {
+        width: 4rem;
+        font-size: 1.2rem;
+    }
+}
+
 @media only screen and (min-width: 650px) {
     nav .brand-logo {
         left: 45%;
@@ -501,6 +547,12 @@ footer.page-footer .footer-copyright {
     }
 }
 
+@media screen and (min-width: 1240px) {
+    .input-field form .dashboard_search-input {
+        width: 73%;
+    }
+}
+
 @media screen and (min-width: 1436px) {
     .footer__logo--height .footer__logo--ufhealth {
         height: 6rem;
@@ -519,5 +571,8 @@ footer.page-footer .footer-copyright {
 @media screen and (min-width: 1600px) {
     .create__img {
         max-width: 300px !important;
+    }
+    .input-field form .dashboard_search-input {
+        width: 80%;
     }
 }
