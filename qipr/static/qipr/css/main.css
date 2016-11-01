@@ -5,6 +5,8 @@
 .gator-blue {
    background-color: #6c9ac3;
 }
+
+/*Navbar*/
 nav {
     background-color: #004d9a;
 }
@@ -26,6 +28,37 @@ nav ul a {
 nav .brand-logo {
     left: 21%;
 }
+
+.nav_li {
+    text-transform: uppercase;
+}
+.nav_li:hover {
+    border-bottom: #039be5 4px solid;
+}
+
+.btn {
+    background-color: #e28f41;
+}
+
+.btn__logout {
+    line-height: 2rem;
+    height: 2rem;
+    width: 5rem;
+    padding: 0 .6;
+}
+
+nav ul a.btn:hover, .side-nav a.btn:hover, .side-nav a.btn-large:hover, .side-nav a.btn-large:hover {
+    background-color: #e47004;
+    }
+
+.btn:hover, .btn-large:hover, .btn:focus {
+    background-color: #e87910;
+}
+
+nav .button-collapse {
+    float: right;
+}
+
 
 .margin__zero {
     margin-top:0 !important;
@@ -55,19 +88,17 @@ p {
     font-size:1.5rem;
 }
 
-
-.btn {
-    background-color: rgba(226, 143, 65, 0.29);
+.icon {
+    float: left;
 }
 
-
-
-.btn:hover, .btn-large:hover, button:focus {
+.btn__project:hover, .btn-large:hover, .btn__project:focus {
     background-color: white;
     color: orange;
 }
 
 .btn__project {
+    background-color: rgba(226, 143, 65, 0.29);
     border: white 2px solid;
     font-size: 1.6rem;
     line-height: 1.6rem;
