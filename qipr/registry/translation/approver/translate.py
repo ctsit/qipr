@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from registry import constants
 from registry import utils
 
-j = '[{"model": "approver.project", "fields": {"safety_target": [], "in_registry": false, "category": [], "keyword": [], "last_modified": "2016-09-06T13:33:23Z", "created_by": ["admin_fixture_user"], "title": "", "created": "2016-09-06T13:28:00Z", "description": "", "proposed_end_date": null, "approval_date": null, "last_modified_by": ["admin_fixture_user"], "model_class_name": "Project", "advisor": [], "guid": "16683d5029e04a1fbaa5a4355914ca62", "owner": {"email_address": "patrick@ufl.edu", "last_name": "FAKE LAST NAME", "gatorlink": "patrick", "model_class_name": "Person", "guid": "44cd4c5827c342c2ba0fb0031edf3a29", "first_name": "patrick"}, "clinical_area": [], "big_aim": [], "proposed_start_date": null, "clinical_setting": [], "collaborator": [{"email_address": "patrick@ufl.edu", "last_name": "FAKE LAST NAME", "gatorlink": "patrick", "model_class_name": "Person", "guid": "44cd4c5827c342c2ba0fb0031edf3a29", "first_name": "patrick"}, {"email_address": null, "last_name": "", "gatorlink": "somethingelse", "model_class_name": "Person", "guid": "16683d5029e04a1fbaa5a4355914ca62", "first_name": ""}]}}]'
+j = '[{"model": "approver.project", "fields": {"safety_target": [], "in_registry": false, "category": [], "keyword": [], "last_modified": "2016-09-06T13:33:23Z", "created_by": ["admin_fixture_user"], "title": "", "created": "2016-09-06T13:28:00Z", "description": "", "proposed_end_date": null, "approval_date": null, "last_modified_by": ["admin_fixture_user"], "model_class_name": "Project", "advisor": [], "guid": "16683d5029e04a1fbaa5a4355914ca62", "owner": {"email_address": "patrick@ufl.edu", "last_name": "FAKE LAST NAME", "gatorlink": "patrick", "model_class_name": "Person", "guid": "44cd4c5827c342c2ba0fb0031edf3a29", "first_name": "patrick"}, "clinical_area": [], "big_aim": [], "proposed_start_date": null, "clinical_setting": [], "collaborator": [{"email_address": "patrick@ufl.edu", "last_name": "FAKE LAST NAME", "gatorlink": "patrick", "model_class_name": "Person", "guid": "44cd4c5827c342c2ba0fb0031edf3a29", "first_name": "patrick"}, {"email_address": null, "last_name": "burbank", "gatorlink": "somethingelse", "model_class_name": "Person", "guid": "16683d5029e04a1fbaa5a4355914ca62", "first_name": "william"}]}}]'
 
 def translate(json_data):
     """
@@ -26,7 +26,6 @@ def get_model(serialized_model):
     """
     Model = get_model_class(serialized_model)
     initial_values = get_initial_values(serialized_model)
-
     return create_or_update(Model, initial_values)
 
 def get_model_class(serialized_model):
@@ -98,9 +97,13 @@ def fix_provenance(fields):
         'created_by',
         'last_modified',
         'last_modified_by',
+        'in_registry',
     ]
     for field in provenance_fields:
-        del fields[field]
+        try:
+            del fields[field]
+        except:
+            pass
     return fields
 
 def reconstitute_related_models(model_name, fields):
@@ -121,13 +124,22 @@ def flatten_related_values(fields_to_change):
     fields = dict(fields_to_change)
     for key in fields.keys():
         value = fields.get(key)
-        # either the value is a many models or one serialized model
+        # either the value is a list of related models or one dict
         if isinstance(value, list) and len(value) >= 1:
             # when we have many models
             if isinstance(value[0], list):
                 #flatten it out
                 fields[key] = [item[0] for item in value]
     return fields
+
+def make_model_from_dict(item):
+        natural_dict = item
+        model_class_name = item.get('model_class_name')
+        Model = model_name_to_model_class(model_class_name)
+        natural_dict = fix_provenance(natural_dict)
+        natural_dict = remove_model_class_name_field(natural_dict)
+        return create_or_update(Model, natural_dict)
+
 
 def instantiate_related_models(fields):
     """
@@ -136,16 +148,22 @@ def instantiate_related_models(fields):
     property then it will call create or update on that
     dictionary with the right constructor
     """
+    toDelete = [];
     for key in fields.keys():
         value = fields.get(key)
         if isinstance(value, list):
+            if len(value) == 0:
+                toDelete.append(key)
             for item in value:
                 if isinstance(item, dict) and item.get('model_class_name'):
-                    natural_dict = item
-                    model_class_name = item.get('model_class_name')
-                    Model = model_name_to_model_class(model_class_name)
-                    instance = create_or_update(Model, natural_dict)
+                    instance = make_model_from_dict(item)
                     item = instance
+        else:
+            if isinstance(value, dict) and value.get('model_class_name'):
+                instance = make_model_from_dict(value)
+                fields[key] = instance
+    for key in toDelete:
+        del fields[key]
     return fields
 
 def create_or_update(Model, natural_dict):
@@ -158,6 +176,7 @@ def create_or_update(Model, natural_dict):
     # need to remove invalid things in the natural dict
     instance = utils.get_instance_or_none(Model, 'guid', guid)
     if instance == None:
+        print(Model, natural_dict)
         instance = Model(**natural_dict)
     else:
         for key in natural_dict.keys():
@@ -170,4 +189,4 @@ def approver_save(instance):
     """
     Saves using the approver user
     """
-    instance.save(Users.objects.get(username=constants.approver_username))
+    instance.save(User.objects.get(username=constants.approver_username))

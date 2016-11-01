@@ -11,6 +11,7 @@ def translate_and_add_model(user, post_data):
             model.save(user)
     except:
         # these are the required things we need first
+        pass
 
     # return data about how it all went, error if lacking relateds
 

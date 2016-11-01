@@ -1,3 +1,5 @@
+import uuid
+
 def set_created_by_if_empty(model, user):
     """
     This function is called by our save function because django
@@ -25,3 +27,10 @@ def get_instance_or_none(Model, prop, value):
         return Model.objects.get(**{prop:value})
     except:
         return None
+
+def get_guid():
+    """
+    Wraps the python uuid.uuid4 function and returns the hex value
+    """
+    return uuid.uuid4().hex
+
