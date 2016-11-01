@@ -12,9 +12,9 @@
     <body>
         <nav>
             <div class="nav-wrapper bg-blue">
-              <a href="home.html" class="brand-logo">
-                <img class="nav__logo" src="{% static 'qipr/img/qipr_outlines.svg' %}">
-              </a> 
+                <a href="/" class="brand-logo">
+                    <img class="nav__logo" src="{% static 'qipr/img/qipr_outlines.svg' %}">
+                </a> 
               <ul class="right">
                 <form class="search">
                   <div class="input-field">
@@ -70,14 +70,14 @@
                 <div class="row section__orange-padding">
                   <h1 class="white-text font__opensans section__orange col s12 m6 l8">Looking for a QI project?</h1>
                   <div class="col s12 m6 l4 section__orange-btn">
-                    <button class="font__opensans btn waves-effect waves-light btn__project" type="submit" name="action">find a project</button>
+                    <form action="{% url 'registry:search' %}">
+                        <button type="submit"  class="font__opensans btn waves-effect waves-light btn__project" value="find a project">find a project</>
+                    </form>
                   </div>
                 </div>
               </div>
             </div>
           </section>
-
-          
 
           <!-- Featured Projects Section -->
           <section class="section__projects valign-wrapper">
@@ -113,7 +113,7 @@
                   <article class="col s4 box-white center-align">
                     <h2 class="fcm__titles blue-text text-darken-4">find</h2>
                       <p class="fcm__text-box">Have an existing Quality Improvement project? Search our existing projects.</p>
-                      <a href="#"><i class="search__icon create__img medium material-icons">search</i></a>
+                      <a href="{% url 'registry:search' %}"><i class="search__icon create__img medium material-icons">search</i></a>
                   </article>
 
                   <article class="col s4 box-white center-align">
