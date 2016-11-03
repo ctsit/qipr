@@ -44,8 +44,9 @@ nav ul a {
 }
 
 .nav__logo {
-    height: 90%;
+    height: 75%;
     padding-left: 0.3rem;
+    margin-top: .5rem;
 }
 
 .search {
