@@ -337,6 +337,13 @@ nav .button-collapse {
     display: none;
 }
 
+img.projects__gator {
+    display: block;
+    margin: 0 auto;
+    height: 13rem;
+    margin-top: 2rem;
+}
+
 /*Footer Section*/
 footer.page-footer {
      margin-top: 0; 
@@ -558,6 +565,12 @@ footer.page-footer .footer-copyright {
     .section__projects {
         height:48rem;
     }
+
+    img.projects__gator {
+    height: 15rem;
+    margin-top: 18rem;
+    }
+
 }
 
 @media screen and (min-width: 1062px) {
@@ -581,6 +594,11 @@ footer.page-footer .footer-copyright {
     .footer__logo--height {
     height: 5rem;
     }
+
+    img.projects__gator {
+    height: 19rem;
+    margin-top: 16rem;
+    }   
 }
 
 @media screen and (min-width: 1240px) {
