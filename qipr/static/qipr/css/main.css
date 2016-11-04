@@ -341,7 +341,6 @@ img.projects__gator {
     display: block;
     margin: 0 auto;
     height: 13rem;
-    margin-top: 2rem;
 }
 
 /*Footer Section*/
@@ -563,12 +562,11 @@ footer.page-footer .footer-copyright {
 
     /*Featured Projects Section*/
     .section__projects {
-        height:48rem;
+        margin: 5rem 0;
     }
 
     img.projects__gator {
     height: 15rem;
-    margin-top: 18rem;
     }
 
 }
@@ -594,11 +592,6 @@ footer.page-footer .footer-copyright {
     .footer__logo--height {
     height: 5rem;
     }
-
-    img.projects__gator {
-    height: 19rem;
-    margin-top: 16rem;
-    }   
 }
 
 @media screen and (min-width: 1240px) {
