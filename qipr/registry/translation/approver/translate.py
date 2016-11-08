@@ -5,8 +5,7 @@ from django.contrib.auth.models import User
 
 from registry import constants
 from registry import utils
-
-j = '[{"model": "approver.project", "fields": {"safety_target": [], "in_registry": false, "category": [], "keyword": [], "last_modified": "2016-09-06T13:33:23Z", "created_by": ["admin_fixture_user"], "title": "", "created": "2016-09-06T13:28:00Z", "description": "", "proposed_end_date": null, "approval_date": null, "last_modified_by": ["admin_fixture_user"], "model_class_name": "Project", "advisor": [], "guid": "16683d5029e04a1fbaa5a4355914ca62", "owner": {"email_address": "patrick@ufl.edu", "last_name": "FAKE LAST NAME", "gatorlink": "patrick", "model_class_name": "Person", "guid": "44cd4c5827c342c2ba0fb0031edf3a29", "first_name": "patrick"}, "clinical_area": [], "big_aim": [], "proposed_start_date": null, "clinical_setting": [], "collaborator": [{"email_address": "patrick@ufl.edu", "last_name": "FAKE LAST NAME", "gatorlink": "patrick", "model_class_name": "Person", "guid": "44cd4c5827c342c2ba0fb0031edf3a29", "first_name": "patrick"}, {"email_address": null, "last_name": "burbank", "gatorlink": "somethingelse", "model_class_name": "Person", "guid": "16683d5029e04a1fbaa5a4355914ca62", "first_name": "william"}]}}]'
+from registry.translation.RelatedStore import RelatedStore
 
 def translate(json_data):
     """
@@ -25,8 +24,8 @@ def get_model(serialized_model):
     pass to the constructor as kwargs.
     """
     Model = get_model_class(serialized_model)
-    initial_values = get_initial_values(serialized_model)
-    return create_or_update(Model, initial_values)
+    (initial_field, relatedStore) = get_initial_values(serialized_model)
+    return create_or_update(Model, initial_field, relatedStore)
 
 def get_model_class(serialized_model):
     model_name = get_model_name(serialized_model)
@@ -71,10 +70,10 @@ def get_initial_values(serialized_model):
     copy = dict(serialized_model.get('fields'))
     copy = fix_provenance(copy)
     copy = remove_model_class_name_field(copy)
-    copy = reconstitute_related_models(model_name, copy)
+    (copy, relatedStore) = get_fields_related_store(model_name, copy)
     del serialized_model['fields']
     serialized_model['fields'] = copy
-    return serialized_model['fields']
+    return (serialized_model['fields'], relatedStore)
 
 def remove_model_class_name_field(fields):
     """
@@ -106,15 +105,15 @@ def fix_provenance(fields):
             pass
     return fields
 
-def reconstitute_related_models(model_name, fields):
+def get_fields_related_store(model_name, fields):
     """
     This function's purpose is to replace the values in fields
     that correspond to related models in the fields dictionary
     with instances of the model.
     """
     fields = flatten_related_values(fields)
-    fields = instantiate_related_models(fields)
-    return fields
+    (fields, relatedStore) = instantiate_related_models(fields)
+    return (fields, relatedStore)
 
 def flatten_related_values(fields_to_change):
     """
@@ -148,25 +147,31 @@ def instantiate_related_models(fields):
     property then it will call create or update on that
     dictionary with the right constructor
     """
-    toDelete = [];
+    to_delete = set();
+    relatedStore = RelatedStore();
+
     for key in fields.keys():
         value = fields.get(key)
         if isinstance(value, list):
             if len(value) == 0:
-                toDelete.append(key)
+                to_delete.add(key)
             for item in value:
                 if isinstance(item, dict) and item.get('model_class_name'):
+                    to_delete.add(key)
                     instance = make_model_from_dict(item)
-                    item = instance
+                    relatedStore.add_related(key, instance)
         else:
             if isinstance(value, dict) and value.get('model_class_name'):
+                to_delete.add(key)
                 instance = make_model_from_dict(value)
-                fields[key] = instance
-    for key in toDelete:
-        del fields[key]
-    return fields
+                relatedStore.add_related(key, instance)
 
-def create_or_update(Model, natural_dict):
+    relatedStore.foreach(approver_save)
+    for key in to_delete:
+        del fields[key]
+    return (fields, relatedStore)
+
+def create_or_update(Model, natural_dict, relatedStore=None):
     """
     Checks for a guid. If it finds one, it tries to get the
     corresponding element and update it. Otherwise it will
@@ -176,13 +181,15 @@ def create_or_update(Model, natural_dict):
     # need to remove invalid things in the natural dict
     instance = utils.get_instance_or_none(Model, 'guid', guid)
     if instance == None:
-        print(Model, natural_dict)
         instance = Model(**natural_dict)
     else:
         for key in natural_dict.keys():
             value = natural_dict.get(key)
             setattr(instance, key, value)
     approver_save(instance)
+    if relatedStore:
+        relatedStore.associate_relateds(instance)
+        approver_save(instance)
     return instance
 
 def approver_save(instance):
