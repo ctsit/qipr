@@ -28,9 +28,7 @@ def get_instance_or_none(Model, prop, value):
     except:
         return None
 
-def get_guid():
-    """
-    Wraps the python uuid.uuid4 function and returns the hex value
-    """
-    return uuid.uuid4().hex
+def set_guid_if_empty(model):
+    if not model.guid:
+        model.guid = uuid.uuid4().hex
 

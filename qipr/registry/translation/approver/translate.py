@@ -98,7 +98,6 @@ def fix_provenance(fields):
         'created_by',
         'last_modified',
         'last_modified_by',
-        'in_registry',
     ]
     for field in provenance_fields:
         try:
