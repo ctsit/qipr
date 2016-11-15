@@ -1,5 +1,6 @@
 import json
 import importlib
+import datetime
 
 from django.contrib.auth.models import User
 
@@ -14,6 +15,7 @@ def translate(json_data):
     of instantiated models
     """
     deserialized = json.loads(json_data)
+    # deserialized = json_data
     return [get_model(item) for item in deserialized]
 
 def get_model(serialized_model):
@@ -181,11 +183,12 @@ def create_or_update(Model, natural_dict, relatedStore=None):
     # need to remove invalid things in the natural dict
     instance = utils.get_instance_or_none(Model, 'guid', guid)
     if instance == None:
-        instance = Model(**natural_dict)
-    else:
-        for key in natural_dict.keys():
-            value = natural_dict.get(key)
-            setattr(instance, key, value)
+        instance = Model()
+    for key in natural_dict.keys():
+        value = natural_dict.get(key)
+        if ('date' in key) and value:
+            value = datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%Sz")
+        setattr(instance, key, value)
     approver_save(instance)
     if relatedStore:
         relatedStore.associate_relateds(instance)
