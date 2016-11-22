@@ -186,7 +186,7 @@ def create_or_update(Model, natural_dict, relatedStore=None):
     for key in natural_dict.keys():
         value = natural_dict.get(key)
         if ('date' in key) and value:
-            value = datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%Sz")
+            value = datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%fZ")
         setattr(instance, key, value)
     approver_save(instance)
     if relatedStore:
