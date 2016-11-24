@@ -29,3 +29,5 @@ filter_field_maps = {
     'Keyword': 'keyword',
     'SafetyTarget': 'safety_target',
 }
+
+approver_username = 'approver_api_user'
