@@ -1,3 +1,18 @@
+## [0.3.0] - 2016-11-24
+## Summary
+ This update adds a new landing page for customers to understand what the
+ page is about. It also adds an API for approver to communicate with.
+### Added
+ * Created API to allow approver to communicate with it (Patrick White)
+ * Styled landing page and search page (Amber Allen)
+ * Style nav menu to match qipr approver. (Amber Allen)
+ * Add search bar and style. (Amber Allen)
+ * Set up layout of 3 white boxes in find, manage, participate section (Amber Allen)
+ * Set up Featured QI Projects section and add charts bg image (Amber Allen)
+ * Add video and text to video section (Amber Allen)
+ * Created and styled QIPR registry homepage (Amber Allen)
+
+
 ## [0.2.0] - 2016-08-23
 ### Changed
  * browser opens to correct page (Patrick White)
