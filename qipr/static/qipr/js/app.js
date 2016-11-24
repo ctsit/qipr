@@ -224,7 +224,7 @@
             } else {
                 descriptors.push(data);
             }
-            window.location.pathname="/d=" + JSON.stringify(descriptors);
+            window.location.pathname="search/d=" + JSON.stringify(descriptors);
         });
     });
 

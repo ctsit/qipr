@@ -1,0 +1,4 @@
+vagrant-notify-forwarder (0.4.0)
+vagrant-share (1.1.5, system)
+vagrant-triggers (0.5.3)
+vagrant-vbguest (0.12.0)
