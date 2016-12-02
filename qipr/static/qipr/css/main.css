@@ -91,6 +91,24 @@ nav .button-collapse {
     float: left;
 }
 
+/*Registry Interior Page*/
+.card__title, .card__header {
+    display: inline;
+    font-weight: 600;
+}
+.card__header {
+    font-size: 1.1rem;
+}
+
+.card-content--title {
+    padding: 20px 20px 0;
+}
+
+.card__title {
+    font-size: 1.5rem;
+}
+
+
 /*Landing About Registry Page*/
 .btn__project:hover, .btn__project:focus {
     background-color: white;
