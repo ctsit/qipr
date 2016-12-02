@@ -9,26 +9,28 @@
     <body>
 
         <!-- THIS SECTION WILL GO IN THE LAYOUT TEMPLATE -->
-        <nav>
-            <div class="nav-wrapper bg-blue">
-                <a id="icon-container" class="icon" href="#">
-                    <img class="nav__logo" src="{% static 'qipr/img/qipr_outlines.png' %}">
-                </a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse hide-on-med-and-up"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-small-only">
-                    <li class="nav_li"><a href="#">Dashboard</a></li>
-                    <li class="nav_li"><a href="">Search Registry</a></li>
-                    <li class="nav_li"><a href="">About</a></li>
-                    <li><a class="btn btn__logout" href="#">Logout</a></li>
-                </ul>
-                <ul class="side-nav" id="mobile-demo">
-                    <li><a class="" href="#">Dashboard</a></li>
-                    <li><a class="" href="">Search Registry</a></li>
-                    <li><a class="" href="">About</a></li>
-                    <li><a class="btn" href="#">Logout</a></li>
-                </ul>
-            </div>
-        </nav>
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper bg-blue">
+                    <a id="icon-container" class="icon" href="#">
+                        <img class="nav__logo" src="{% static 'qipr/img/qipr_outlines.png' %}">
+                    </a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse hide-on-med-and-up"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-small-only">
+                        <li class="nav_li"><a href="#">Dashboard</a></li>
+                        <li class="nav_li"><a href="">Search Registry</a></li>
+                        <li class="nav_li"><a href="">About</a></li>
+                        <li><a class="btn btn__logout" href="#">Logout</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a class="" href="#">Dashboard</a></li>
+                        <li><a class="" href="">Search Registry</a></li>
+                        <li><a class="" href="">About</a></li>
+                        <li><a class="btn" href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
         <!-- END SECTION THAT WILL GO IN THE LAYOUT TEMPLATE -->
 
         <div class="row registry__body--container">
