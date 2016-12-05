@@ -92,6 +92,16 @@ nav .button-collapse {
 }
 
 /*Registry Interior Page*/
+.headerbg__interiorpg {
+    background-color: rgba(177, 220, 251, 0.49);
+}
+
+.question__header {
+    margin: 0;
+    padding: 4rem 0;
+    font-weight: 100;
+}
+
 .card__title, .card__header {
     display: inline;
     font-weight: 600;
@@ -106,6 +116,11 @@ nav .button-collapse {
 
 .card__title {
     font-size: 1.5rem;
+}
+
+.card__icon {
+    top: .5rem;
+    position: relative;
 }
 
 .back__dashboard {
