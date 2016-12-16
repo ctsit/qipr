@@ -205,28 +205,53 @@
         });
     });
 
-    Array.prototype.forEach.call(facets, function (node) {
-        node.addEventListener('click', function (event) {
-            var clicked = event.target,
-                descriptors = document.querySelector('#search-descriptors').textContent,
-                filterField = clicked.getAttribute('data-filterfield'),
-                value = clicked.getAttribute('data-value'),
-                data = {ff: filterField, v: value},
-                containsDescriptor;
-            descriptors = JSON.parse(descriptors);
+    var goToSearchPage = function (searchText, descriptors){
+        var url = '/search/s=' + searchText
+                + '/' + (descriptors ? 'd=' + JSON.stringify(descriptors) : '');
+        window.location.pathname = url;
+    };
+
+    var getDescriptors = function (node) {
+        var descriptors = document.querySelector('#search-descriptors').textContent;
+
+        descriptors = JSON.parse(descriptors);
+        if (node.hasAttribute('data-value')){
+            descriptors = addDescriptorIfNew(descriptors, node);
+        }
+        return descriptors;
+    };
+
+    var addDescriptorIfNew = function (descriptors, node) {
+        var value = node.getAttribute('data-value'),
+            filterField = node.getAttribute('data-filterfield'),
+            data = {ff: filterField, v: value},
             containsDescriptor = descriptors.reduce(function(acc, item) {
                 return acc || (item.v === value && item.ff === filterField);
             }, false);
-            if (containsDescriptor) {
-                descriptors = descriptors.filter(function (item) {
-                    return (item.v !== value && item.ff !== value);
-                });
-            } else {
-                descriptors.push(data);
-            }
-            window.location.pathname="search/d=" + JSON.stringify(descriptors);
-        });
+        if (containsDescriptor) {
+            //unchecks
+            descriptors = descriptors.filter(function (item) {
+                return (item.v !== value && item.ff !== value);
+            });
+        } else {
+            //checks
+            descriptors.push(data);
+        }
+        return descriptors;
+    };
+
+    window.searchHandler = function (event) {
+        var clicked = event.target,
+            searchText = document.querySelector('#search').value,
+            descriptors = getDescriptors(event.target);
+
+        goToSearchPage(searchText, descriptors);
+    };
+
+    Array.prototype.forEach.call(facets, function (node) {
+        node.addEventListener('click', window.searchHandler);
     });
 
+    document.querySelector('#search_form').addEventListener('submit', window.searchHandler);
 
 }();
