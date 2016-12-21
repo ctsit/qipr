@@ -38,7 +38,7 @@
                 <div class="input-field dashboard_search">
                     <form method="post" action="#">
                         {% csrf_token %}
-                        <input placeholder="Search the QIPR Registry" class="dashboard_search-input" id="search" type="search" name="search" value={{ search_query }} >
+                        <input placeholder="Search e.g. handwashing" class="dashboard_search-input" id="search" type="search" name="search" value={{ search_query }} >
                         
                         <input class="dashboard__search--projects" type="submit" value="&#128270;">
                     </form>
