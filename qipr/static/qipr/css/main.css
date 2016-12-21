@@ -281,10 +281,13 @@ nav .button-collapse {
 }
 
 .registry__body--container .dashboard_search {
-    margin: 1.5rem 0;
     border: 1pt #ddd solid;
     height: 3rem;
     width: 100%;
+    background-color: white;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 2rem;
 }
 
 .input-field form .dashboard_search-input {
@@ -293,7 +296,7 @@ nav .button-collapse {
     margin-bottom: 0;
     padding: .5rem 1rem;
     float: left;
-    width: 20rem;
+    width: calc(100% - 5.1rem);
     font-size: 1.5rem;
 }
 
@@ -548,7 +551,6 @@ footer.page-footer .footer-copyright {
 
 @media only screen and (min-width: 601px) {
     .input-field form .dashboard_search-input {
-        width: 4rem;
         font-size: 1.2rem;
     }
 }
@@ -639,12 +641,6 @@ footer.page-footer .footer-copyright {
     }
 }
 
-@media screen and (min-width: 1240px) {
-    .input-field form .dashboard_search-input {
-        width: 73%;
-    }
-}
-
 @media screen and (min-width: 1436px) {
     .footer__logo--height .footer__logo--ufhealth {
         height: 6rem;
@@ -663,8 +659,5 @@ footer.page-footer .footer-copyright {
 @media screen and (min-width: 1600px) {
     .create__img {
         max-width: 300px !important;
-    }
-    .input-field form .dashboard_search-input {
-        width: 80%;
     }
 }

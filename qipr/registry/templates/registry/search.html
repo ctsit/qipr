@@ -33,8 +33,8 @@
         </div>
         <!-- END SECTION THAT WILL GO IN THE LAYOUT TEMPLATE -->
 
-        <div class="row registry__body--container">
-            <div id="facets" class="col s12 m3">
+        <div class="row registry__body--container indigo darken-4">
+            <div class="col s12 ">
                 <div class="input-field dashboard_search">
                     <form method="post" action="#">
                         {% csrf_token %}
@@ -43,6 +43,20 @@
                         <input class="dashboard__search--projects" type="submit" value="&#128270;">
                     </form>
                 </div>
+                <p class="white-text center-align">Search the QIPR Registry by project title or project description</p>
+            </div>
+        </div>
+
+        <div class="row registry__body--container">
+            <div id="facets" class="col s12 m3">
+                <!-- <div class="input-field dashboard_search">
+                    <form method="post" action="#">
+                        {% csrf_token %}
+                        <input placeholder="Search the QIPR Registry" class="dashboard_search-input" id="search" type="search" name="search" value={{ search_query }} >
+                        
+                        <input class="dashboard__search--projects" type="submit" value="&#128270;">
+                    </form>
+                </div> -->
                 
                 {% include 'registry/facets.html' %}
 
