@@ -47,7 +47,7 @@
     });
 
     var getHostnameSuffix = function () {
-        return window.location.hostname === 'qipr.ctsi.ufl.edu' ? '/registry' : '';
+        return window.location.hostname.includes('qipr.ctsi.ufl.edu') ? '/registry' : '';
     };
 
     var goToSearchPage = function (searchText, descriptors){
