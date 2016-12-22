@@ -91,6 +91,51 @@ nav .button-collapse {
     float: left;
 }
 
+/*Registry Interior Page*/
+.headerbg__interiorpg {
+    background-color: rgba(177, 220, 251, 0.49);
+}
+
+.question__header {
+    margin: 0;
+    padding: 4rem 0;
+    font-weight: 100;
+}
+
+.card__title, .card__header {
+    display: inline;
+    font-weight: 600;
+}
+.card__header {
+    font-size: 1.1rem;
+}
+
+.card-content--title {
+    padding: 20px 20px 0;
+}
+
+.card__title {
+    font-size: 1.5rem;
+}
+
+.card__icon {
+    top: .5rem;
+    position: relative;
+}
+
+.back__dashboard {
+    font-size: 1.5rem;
+    margin: 0 auto;
+    display: block;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.back__dashboard:hover {
+    color: #004d9a;
+}
+
+
 /*Landing About Registry Page*/
 .btn__project:hover, .btn__project:focus {
     background-color: white;
@@ -236,10 +281,13 @@ nav .button-collapse {
 }
 
 .registry__body--container .dashboard_search {
-    margin: 1.5rem 0;
     border: 1pt #ddd solid;
     height: 3rem;
     width: 100%;
+    background-color: white;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 2rem;
 }
 
 .input-field form .dashboard_search-input {
@@ -248,7 +296,7 @@ nav .button-collapse {
     margin-bottom: 0;
     padding: .5rem 1rem;
     float: left;
-    width: 20rem;
+    width: calc(100% - 5.1rem);
     font-size: 1.5rem;
 }
 
@@ -350,6 +398,7 @@ footer.page-footer {
 
 .registry__body--container {
     margin-bottom: 0;
+    background-color: #022a52
 } 
 
 .footer__logo--ufhealth {
@@ -503,7 +552,6 @@ footer.page-footer .footer-copyright {
 
 @media only screen and (min-width: 601px) {
     .input-field form .dashboard_search-input {
-        width: 4rem;
         font-size: 1.2rem;
     }
 }
@@ -594,12 +642,6 @@ footer.page-footer .footer-copyright {
     }
 }
 
-@media screen and (min-width: 1240px) {
-    .input-field form .dashboard_search-input {
-        width: 73%;
-    }
-}
-
 @media screen and (min-width: 1436px) {
     .footer__logo--height .footer__logo--ufhealth {
         height: 6rem;
@@ -618,8 +660,5 @@ footer.page-footer .footer-copyright {
 @media screen and (min-width: 1600px) {
     .create__img {
         max-width: 300px !important;
-    }
-    .input-field form .dashboard_search-input {
-        width: 80%;
     }
 }
