@@ -10,22 +10,28 @@
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     </head>
     <body>
-        <nav>
-            <div class="nav-wrapper bg-blue">
-                <a href="/" class="brand-logo">
-                    <img class="nav__logo" src="{% static 'qipr/img/qipr_outlines.png' %}">
-                </a> 
-              <ul class="right">
-                <form class="search">
-                  <div class="input-field">
-                    <input id="search" type="search" required>
-                    <label for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
-                  </div>
-                </form>
-              </ul>
-            </div>
-        </nav>
+      <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper bg-blue">
+                    <a id="icon-container" class="icon" href="#">
+                        <img class="nav__logo" src="{% static 'qipr/img/qipr_outlines.png' %}">
+                    </a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse hide-on-med-and-up"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-small-only">
+                        <li class="nav_li"><a href="#">Dashboard</a></li>
+                        <li class="nav_li"><a href="{% url 'registry:search' %}">Search Registry</a></li>
+                        <li class="nav_li"><a href="">About</a></li>
+                        <li><a class="btn btn__logout" href="#">Logout</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a class="" href="#">Dashboard</a></li>
+                        <li><a class="" href="">Search Registry</a></li>
+                        <li><a class="" href="">About</a></li>
+                        <li><a class="btn" href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
         <main>
           <!-- Hero Image/ Mission Stmt Section-->
           <section class="bg__img">
