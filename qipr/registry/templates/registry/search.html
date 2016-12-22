@@ -36,7 +36,7 @@
         <div class="row registry__body--container">
             <div class="col s12 ">
                 <div class="input-field dashboard_search">
-                    <form method="post" action="#">
+                    <form method="post" action="javascript:void(0);" id="search_form">
                         {% csrf_token %}
                         <input placeholder="Search e.g. handwashing" class="dashboard_search-input" id="search" type="search" name="search" value={{ search_query }} >
                         

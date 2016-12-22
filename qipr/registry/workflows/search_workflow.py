@@ -2,7 +2,7 @@ from django.core import serializers
 
 from registry.models import Project
 
-def get_matching_projects(descriptors):
+def get_matching_projects(search_text, descriptors):
     """
     gets projects that match successive filter calls from descriptors
 
@@ -19,6 +19,10 @@ def get_matching_projects(descriptors):
     value_key = 'v'
     for item in descriptors:
         projects = projects.filter(**{item[filter_field_key]: item[value_key]})
+    if search_text:
+        title_projects = projects.filter(title__icontains=search_text)
+        desc_projects = projects.filter(description__icontains=search_text)
+        projects = list(title_projects) + list(desc_projects)
     return projects
 
 def serialize_for_response(iterable, use_natural_keys=False):
