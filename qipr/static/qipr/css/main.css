@@ -183,6 +183,10 @@ nav .button-collapse {
     clear: both;
 }
 
+.faq__pd {
+    padding: 4rem 0;
+}
+
 /*Landing About Registry Page*/
 
 .btn__project:hover, .btn__project:focus {
@@ -463,12 +467,11 @@ footer.page-footer .footer-copyright {
 
 /*Top Hero Image Section*/
 .bg__ltblue {
-    background-color: #43b1e5;
-    opacity: 0.89;
-    margin-left: 1rem;
+    margin: 0 auto;
+    background-color: rgba(3, 155, 229, 0.83);
     position: relative;
-    top: 5rem;
-    max-width: 1400px;
+    top: 4rem;
+    max-width: 1000px;
 }
 
 .mission_text {
@@ -482,7 +485,7 @@ footer.page-footer .footer-copyright {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height:70rem;
+    height:17rem;
 }
 
 /*Find Manage Create Section*/
@@ -562,9 +565,9 @@ footer.page-footer .footer-copyright {
         font-size:2.8rem;
     }
 
-    .bg__img {
+    /*.bg__img {
     height:55rem;
-    }
+    }*/
 
     .bg__img-graphs {
     height:75rem;
@@ -633,17 +636,12 @@ footer.page-footer .footer-copyright {
     }
 
     .mission_title {
-        max-width:412px;
         padding-left: 1rem;
     }
     
     .mission_body {
     max-width: 57rem;
     padding-bottom: 2rem;
-    }
-
-    .bg__ltblue {
-    margin-left: 3rem;
     }
 
     .fcm__titles {
