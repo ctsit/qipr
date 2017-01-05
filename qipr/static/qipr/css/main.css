@@ -136,7 +136,7 @@ nav .button-collapse {
 }
 
 
-/*Landing About Registry Page*/
+/*FAQ Page*/
 .shape__circle {
     width: 75px;
     height: 75px;
@@ -156,6 +156,14 @@ nav .button-collapse {
     right: -1.8rem;
     font-size: 4rem;
 }
+
+.text__blue {
+    color: #004d9a;
+    height: 4rem;
+    padding-top: .5rem;
+}
+
+/*Landing About Registry Page*/
 
 .btn__project:hover, .btn__project:focus {
     background-color: white;
