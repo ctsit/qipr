@@ -163,6 +163,22 @@ nav .button-collapse {
     padding-top: .5rem;
 }
 
+.landing__FAQ--font {
+    font-size:1.25rem;
+}
+
+.landing__FAQ--font li {
+    list-style-type:square;
+}
+
+.landing__FAQ--padding {
+    padding-right: 2rem;
+    }
+
+.landing_FAQ--bullets {
+    margin-left: 2rem;
+}
+
 /*Landing About Registry Page*/
 
 .btn__project:hover, .btn__project:focus {
