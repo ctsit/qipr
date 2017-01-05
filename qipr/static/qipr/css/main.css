@@ -33,6 +33,10 @@ p {
     font-size:1.5rem;
 }
 
+a:hover, a:active {
+    color: #004d9a;
+}
+
 /*Navbar*/
 nav {
     background-color: #004d9a;
@@ -41,6 +45,10 @@ nav {
 nav ul a {
     padding-left:.5rem;
     padding-right:.5rem;
+}
+
+nav ul a:hover, nav ul a:active {
+    color: white;
 }
 
 .nav__logo {
@@ -316,14 +324,6 @@ nav .button-collapse {
 
 .project_tag {
     postion: initial;
-}
-
-.project_tag a {
-    color: #004d9a;
-}
-
-.project_tag a:hover {
-    color: #47b1e5;
 }
 
 .project_tag a h4 {
