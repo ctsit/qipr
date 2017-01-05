@@ -179,6 +179,10 @@ nav .button-collapse {
     margin-left: 2rem;
 }
 
+.clear__both {
+    clear: both;
+}
+
 /*Landing About Registry Page*/
 
 .btn__project:hover, .btn__project:focus {
@@ -197,19 +201,17 @@ nav .button-collapse {
 .section__orange {
     display: inline-block;
     font-size: 2.5rem;
-    padding: 5rem 1rem;
     text-align: center;
+    font-weight:700;
 }
 
-.section__orange-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 2.5rem !important;
+.section__orange a {
+    color: white;
 }
 
 .section__orange-padding {
-    padding: 5rem 0 !important;
+    padding: 1rem 0;
+    margin-bottom: 0;
 }
 
 .section__video {
@@ -666,13 +668,6 @@ footer.page-footer .footer-copyright {
 @media screen and (min-width: 1062px) {
     .box-white {
         height: 374px;
-    }
-}
-
-
-@media screen and (min-width: 1085px) {
-    .section__orange {
-        font-size:3.5rem;
     }
 }
 
