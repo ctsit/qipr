@@ -441,15 +441,15 @@ img.projects__gator {
     height: 13rem;
 }
 
+.registry__body--container {
+    margin-bottom: 0;
+    background-color: #022a52
+}
+
 /*Footer Section*/
 footer.page-footer {
      margin-top: 0; 
 }
-
-.registry__body--container {
-    margin-bottom: 0;
-    background-color: #022a52
-} 
 
 .footer__logo--ufhealth {
     padding: 0 3rem;
@@ -461,8 +461,10 @@ footer.page-footer {
 
 footer.page-footer .footer-copyright {
     color: #004d9a;
+    background-color: rgba(51, 51, 51, 0.18);
+    height: auto;
+    line-height: auto;
     font-weight: 400;
-    background-color: rgba(165, 165, 165, 0.27);
 }
 
 /*Top Hero Image Section*/
