@@ -1,5 +1,9 @@
 import pdb
 class RelatedStore (object):
+    """
+    This class is used in translation to
+    associate related properties to their model
+    """
 
     def __init__(self):
         self.related = {}

@@ -117,7 +117,6 @@ class Person(Provenance):
     speciality = models.ManyToManyField(Speciality)
     suffix = models.ManyToManyField(Suffix)
     training = models.ManyToManyField(Training)
-    user = models.OneToOneField(User, null=True, related_name="person")
     webpage_url = models.CharField(max_length=50, null=True)
 
     tag_property_name = 'email_address'
