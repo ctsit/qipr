@@ -31,3 +31,7 @@ filter_field_maps = {
 }
 
 approver_username = 'approver_api_user'
+
+bridge_keys = {
+    'approver': os.environ['APPROVER_SHARED_BRIDGE_KEY'],
+}
