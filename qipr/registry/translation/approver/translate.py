@@ -15,7 +15,6 @@ def translate(json_data):
     of instantiated models
     """
     deserialized = json.loads(json_data)
-    # deserialized = json_data
     return [get_model(item) for item in deserialized]
 
 def get_model(serialized_model):
@@ -185,6 +184,8 @@ def create_or_update(Model, natural_dict, relatedStore=None):
         instance = Model()
     for key in natural_dict.keys():
         value = natural_dict.get(key)
+        if (key == 'account_expiration_time') and value:
+            value = datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%SZ")
         if ('date' in key) and value:
             value = datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%fZ")
         setattr(instance, key, value)
