@@ -2,13 +2,13 @@ import json
 import importlib
 import datetime
 
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 
 from registry import constants
 from registry import utils
 from registry.translation.RelatedStore import RelatedStore
 
-def translate(json_data):
+def translate(user, json_data):
     """
     Takes json from post data and turns it into a python data
     structure. Then it iterates over it and returns a list

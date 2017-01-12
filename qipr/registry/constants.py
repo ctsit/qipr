@@ -1,9 +1,11 @@
+import os
 """
 This file contains constants for various things in the app.
 DONT STRING MATCH
 put stuff in here and import to other files.
 Also dont import things into here, circular dependencies == bad
 """
+
 gatorlink_header = 'Glid'
 STATE_CHOICES = [
     ("FL", "Florida"),
