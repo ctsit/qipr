@@ -327,7 +327,13 @@ nav .button-collapse {
 }
 
 .project_tag a h4 {
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+
+.project_tag h5 {
     font-weight: 300;
+    font-size: 1.4rem;
 }
 
 .registry__body--container .dashboard_search {
