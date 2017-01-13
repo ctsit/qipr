@@ -337,12 +337,17 @@ nav .button-collapse {
 }
 
 .project__divider {
-    margin: 0 1rem;
+    margin: 0 2rem;
     color: #b7b7b7;
 }
 
-.card .card-content {
-    padding: .5rem 2rem 2rem;
+.card-content {
+    padding: 1rem 3rem 2rem;
+}
+
+.project__bottom {
+    margin-bottom: 0;
+    border-bottom: .1rem #b7b7b7 solid;
 }
 
 .registry__body--container .dashboard_search {
@@ -384,8 +389,7 @@ nav .button-collapse {
 }
 
 #project-list {
-    background-image: url("../img/climpek.png");
-    background-color: #f3fbff;
+    border-left: #b7b7b7 solid .1rem;
     min-height: 100%;
     height: auto;
 }
