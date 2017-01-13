@@ -3,11 +3,9 @@ from operator import attrgetter
 
 facet_Models = [
     BigAim,
-    Category,
     ClinicalArea,
     ClinicalSetting,
     Keyword,
-    SafetyTarget,
 ]
 
 class FacetForm:
