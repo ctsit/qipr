@@ -342,7 +342,7 @@ nav .button-collapse {
 }
 
 .card-content {
-    padding: 1rem 3rem 2rem;
+    padding-bottom: 1rem;
 }
 
 .project__bottom {
@@ -466,7 +466,11 @@ img.projects__gator {
 
 .registry__body--container {
     margin-bottom: 0;
-    background-color: #022a52
+     background: url("../img/file_bg.png") no-repeat bottom center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 /*Footer Section*/
@@ -591,13 +595,13 @@ footer.page-footer .footer-copyright {
     }
 
     .bg__img-graphs {
-    height:75rem;
+        height:75rem;
     }
 }
 
 @media screen and (min-width: 601px) {
     .section__video {
-    height: 56rem;
+        height: 56rem;
     }
 
     .box-white {
@@ -608,19 +612,21 @@ footer.page-footer .footer-copyright {
     }
 
     .bg__img-graphs {
-    height: 45rem;
+        height: 45rem;
     }
 
     .create__img {
-    max-width:100% !important;
+        max-width:100% !important;
     }
 
     #facets {
-    min-height: 100%; 
+        min-height: 100%; 
     }
-}
 
-@media only screen and (min-width: 601px) {
+    .card-content {
+        padding: 1rem;
+    }
+
     .input-field form .dashboard_search-input {
         font-size: 1.2rem;
     }
@@ -718,5 +724,9 @@ footer.page-footer .footer-copyright {
 @media screen and (min-width: 1600px) {
     .create__img {
         max-width: 300px !important;
+    }
+
+    .card-content {
+        padding: 1rem 3rem 2rem;
     }
 }
