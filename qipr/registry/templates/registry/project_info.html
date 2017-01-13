@@ -18,14 +18,14 @@
                     <a href="#" data-activates="mobile-demo" class="button-collapse hide-on-med-and-up"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-small-only">
                         <li class="nav_li"><a href="#">Dashboard</a></li>
-                        <li class="nav_li"><a href="">Search Registry</a></li>
-                        <li class="nav_li"><a href="">About</a></li>
+                        <li class="nav_li"><a href="{% url 'registry:search' %}">Search Registry</a></li>
+                        <li class="nav_li"><a href="{% url 'registry:index' %}">FAQs</a></li>
                         <li><a class="btn btn__logout" href="#">Logout</a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo">
                         <li><a class="" href="#">Dashboard</a></li>
-                        <li><a class="" href="">Search Registry</a></li>
-                        <li><a class="" href="">About</a></li>
+                        <li><a class="" href="{% url 'registry:search' %}">Search Registry</a></li>
+                        <li><a class="" href="{% url 'registry:index' %}">FAQs</a></li>
                         <li><a class="btn" href="#">Logout</a></li>
                     </ul>
                 </div>
@@ -88,7 +88,6 @@
                     </div>
                     <div class="col s12 m4 center">
                         <h5>Contact The QIPR Team</h5>
-                        <p>Email: <a href="mailto:someemail@shands.ufl.edu?subject=QIPR Inquiry">someemail@shands.ufl.edu</a></p>
                         <p>Phone: <a href="tel:3522650002">352-265-0002</a></p>
                     </div>
                 </div>
@@ -96,8 +95,11 @@
 
             <div class="footer-copyright">
                 <div class="container center">
-                    © 2016 QIPR Approver {{ version_number }}
-                </div>
+                  <p>© 2017 QIPR Approver {{ version_number }}
+                      |
+                      Website Designed by <a href="https://www.ctsi.ufl.edu/research/study-design-and-analysis/informatics-consulting/" target="_blank">CTS-IT</a>
+                  </p>
+              </div>
             </div>
         </footer>
         <!-- END SECTION THAT WILL GO IN THE LAYOUT TEMPLATE -->

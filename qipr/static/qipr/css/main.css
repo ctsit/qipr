@@ -33,6 +33,10 @@ p {
     font-size:1.5rem;
 }
 
+a:hover, a:active {
+    color: #004d9a;
+}
+
 /*Navbar*/
 nav {
     background-color: #004d9a;
@@ -41,6 +45,10 @@ nav {
 nav ul a {
     padding-left:.5rem;
     padding-right:.5rem;
+}
+
+nav ul a:hover, nav ul a:active {
+    color: white;
 }
 
 .nav__logo {
@@ -136,7 +144,59 @@ nav .button-collapse {
 }
 
 
+/*FAQ Page*/
+.shape__circle {
+    width: 75px;
+    height: 75px;
+    background: #004d9a;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    float:left;
+    margin-right:1.5rem;
+    clear:both;
+}
+
+.shape__circle--text {
+    display: block;
+    position: relative;
+    top: -0.5rem;
+    right: -1.8rem;
+    font-size: 4rem;
+}
+
+.text__blue {
+    color: #004d9a;
+    height: 4rem;
+    padding-top: .5rem;
+}
+
+.landing__FAQ--font {
+    font-size:1.25rem;
+}
+
+.landing__FAQ--font li {
+    list-style-type:square;
+}
+
+.landing__FAQ--padding {
+    padding-right: 2rem;
+    }
+
+.landing_FAQ--bullets {
+    margin-left: 2rem;
+}
+
+.clear__both {
+    clear: both;
+}
+
+.faq__pd {
+    padding: 4rem 0;
+}
+
 /*Landing About Registry Page*/
+
 .btn__project:hover, .btn__project:focus {
     background-color: white;
     color: orange;
@@ -153,19 +213,17 @@ nav .button-collapse {
 .section__orange {
     display: inline-block;
     font-size: 2.5rem;
-    padding: 5rem 1rem;
     text-align: center;
+    font-weight:700;
 }
 
-.section__orange-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 2.5rem !important;
+.section__orange a {
+    color: white;
 }
 
 .section__orange-padding {
-    padding: 5rem 0 !important;
+    padding: 1rem 0;
+    margin-bottom: 0;
 }
 
 .section__video {
@@ -266,14 +324,6 @@ nav .button-collapse {
 
 .project_tag {
     postion: initial;
-}
-
-.project_tag a {
-    color: #004d9a;
-}
-
-.project_tag a:hover {
-    color: #47b1e5;
 }
 
 .project_tag a h4 {
@@ -391,15 +441,15 @@ img.projects__gator {
     height: 13rem;
 }
 
+.registry__body--container {
+    margin-bottom: 0;
+    background-color: #022a52
+}
+
 /*Footer Section*/
 footer.page-footer {
      margin-top: 0; 
 }
-
-.registry__body--container {
-    margin-bottom: 0;
-    background-color: #022a52
-} 
 
 .footer__logo--ufhealth {
     padding: 0 3rem;
@@ -411,18 +461,19 @@ footer.page-footer {
 
 footer.page-footer .footer-copyright {
     color: #004d9a;
+    background-color: rgba(51, 51, 51, 0.18);
+    height: auto;
+    line-height: auto;
     font-weight: 400;
-    background-color: rgba(165, 165, 165, 0.27);
 }
 
 /*Top Hero Image Section*/
 .bg__ltblue {
-    background-color: #43b1e5;
-    opacity: 0.89;
-    margin-left: 1rem;
+    margin: 0 auto;
+    background-color: rgba(3, 155, 229, 0.83);
     position: relative;
-    top: 5rem;
-    max-width: 1400px;
+    top: 4rem;
+    max-width: 1000px;
 }
 
 .mission_text {
@@ -436,7 +487,7 @@ footer.page-footer .footer-copyright {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height:70rem;
+    height:17rem;
 }
 
 /*Find Manage Create Section*/
@@ -516,10 +567,6 @@ footer.page-footer .footer-copyright {
         font-size:2.8rem;
     }
 
-    .bg__img {
-    height:55rem;
-    }
-
     .bg__img-graphs {
     height:75rem;
     }
@@ -587,17 +634,12 @@ footer.page-footer .footer-copyright {
     }
 
     .mission_title {
-        max-width:412px;
         padding-left: 1rem;
     }
     
     .mission_body {
     max-width: 57rem;
     padding-bottom: 2rem;
-    }
-
-    .bg__ltblue {
-    margin-left: 3rem;
     }
 
     .fcm__titles {
@@ -622,13 +664,6 @@ footer.page-footer .footer-copyright {
 @media screen and (min-width: 1062px) {
     .box-white {
         height: 374px;
-    }
-}
-
-
-@media screen and (min-width: 1085px) {
-    .section__orange {
-        font-size:3.5rem;
     }
 }
 
