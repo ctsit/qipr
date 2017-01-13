@@ -397,7 +397,7 @@ nav .button-collapse {
 #facets {
     background-color: white;
     height: auto;
-    padding-bottom: 1rem;
+    padding: 0 0 1rem;
 }
 
 .facet-tag {
@@ -421,33 +421,37 @@ nav .button-collapse {
 }
 
 .facet-tag__category {
-    border-bottom: solid 2px #444;;
-    padding: 0.5rem 0;
+    background-color: #022a52;
+    border-bottom: solid 2px #fff;
+    padding: .7rem 1rem;
     font-size: 1.3rem;
+    color: white;
+    font-weight: 300;
 }
 
 .facet-tag__facet-list {
+    padding-top: 0.5rem;
+    background-color: white;
     overflow-x: wrap;
 }
 
 .facet-tag__details {
-    color: #444;
+    color: #fff;
     font-size: 1.5rem;
     position: absolute;
     top: 0;
     right: 0;
     transition: .5s;
-    padding-left: 1rem;
-    padding-top: .5rem;
+    padding: .8rem 1rem 0 0;
     cursor: pointer;
 }
 
 .facet-tag__details--inactive {
-    transform: rotateZ(90deg);
+    transform: rotateZ(0deg);
 }
 
 .facet-tag__details--active {
-    transform: rotateZ(0deg);
+    transform: rotateZ(90deg);
 }
 
 .hidden {
