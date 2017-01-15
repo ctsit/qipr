@@ -30,6 +30,7 @@ def define_env():
     os.environ['QIPR_DATABASE_PASSWORD'] = get_config('database_password')
     os.environ['QIPR_DATABASE_HOST'] = get_config('database_host')
     os.environ['QIPR_DATABASE_PORT'] = get_config('database_port')
+    os.environ['APPROVER_SHARED_BRIDGE_KEY'] = get_config('approver_shared_bridge_key')
 
 define_env()
 

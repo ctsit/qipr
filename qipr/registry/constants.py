@@ -1,9 +1,11 @@
+import os
 """
 This file contains constants for various things in the app.
 DONT STRING MATCH
 put stuff in here and import to other files.
 Also dont import things into here, circular dependencies == bad
 """
+
 gatorlink_header = 'Glid'
 STATE_CHOICES = [
     ("FL", "Florida"),
@@ -31,3 +33,7 @@ filter_field_maps = {
 }
 
 approver_username = 'approver_api_user'
+
+bridge_keys = {
+    'approver': os.environ['APPROVER_SHARED_BRIDGE_KEY'],
+}

@@ -22,7 +22,7 @@ class Provenance(models.Model):
     last_modified_by = models.ForeignKey(User,related_name="+")
     created = models.DateTimeField(auto_now_add=True,editable=False)
     last_modified = models.DateTimeField(auto_now=True,editable=True)
-    guid = models.CharField(null=True, max_length=32, editable=False)
+    guid = models.CharField(default=utils.get_guid, max_length=32, editable=False)
 
     def save(self, last_modified_by, *args, **kwargs):
         utils.set_created_by_if_empty(self, last_modified_by)
@@ -117,7 +117,6 @@ class Person(Provenance):
     speciality = models.ManyToManyField(Speciality)
     suffix = models.ManyToManyField(Suffix)
     training = models.ManyToManyField(Training)
-    user = models.OneToOneField(User, null=True, related_name="person")
     webpage_url = models.CharField(max_length=50, null=True)
 
     tag_property_name = 'email_address'
