@@ -16,5 +16,23 @@
     "groups": [],
     "user_permissions": []
   }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "password2",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "approver_api_user",
+    "first_name": "admin",
+    "last_name": "api",
+    "email": "CTS-IT-ALL@ctsi.ufl.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2016-08-23T11:22:33Z",
+    "groups": [],
+    "user_permissions": []
+  }
 }
 ]
