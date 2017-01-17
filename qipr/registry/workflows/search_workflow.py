@@ -23,6 +23,7 @@ def get_matching_projects(search_text, descriptors):
         title_projects = projects.filter(title__icontains=search_text)
         desc_projects = projects.filter(description__icontains=search_text)
         projects = list(title_projects) + list(desc_projects)
+        projects = list(set(projects))
     return projects
 
 def serialize_for_response(iterable, use_natural_keys=False):
