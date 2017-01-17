@@ -18,16 +18,16 @@
                     </a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse hide-on-med-and-up"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-small-only">
-                        <li class="nav_li"><a href="#">Dashboard</a></li>
+                        <li class="nav_li"><a href="{{ approver_dashboard }}">Dashboard</a></li>
                         <li class="nav_li"><a href="{% url 'registry:search' %}">Search Registry</a></li>
                         <li class="nav_li"><a href="{% url 'registry:index' %}">FAQs</a></li>
-                        <li><a class="btn btn__logout" href="#">Logout</a></li>
+                        <li><a class="btn btn__logout" href="{{ approver_logout }}">Logout</a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo">
-                        <li><a class="" href="#">Dashboard</a></li>
-                        <li><a class="" href="">Search Registry</a></li>
-                        <li><a class="" href="">About</a></li>
-                        <li><a class="btn" href="#">Logout</a></li>
+                        <li><a class="" href="{{ approver_dashboard }}">Dashboard</a></li>
+                        <li><a class="" href="{% url 'registry:search' %}">Search Registry</a></li>
+                        <li><a class="" href="{% url 'registry:index' %}">FAQ</a></li>
+                        <li><a class="btn" href="{{ approver_logout }}">Logout</a></li>
                     </ul>
                 </div>
             </nav>
