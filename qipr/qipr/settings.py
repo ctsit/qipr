@@ -16,8 +16,8 @@ import configparser
 
 config = configparser.ConfigParser()
 
-def get_config(key):
-    return config.get(config.default_section, key)
+def get_config(key, section=config.default_section):
+    return config.get(section, key)
 
 def define_env():
     config.read('/var/www/qipr/qipr/deploy/settings.ini')
@@ -31,6 +31,12 @@ def define_env():
     os.environ['QIPR_DATABASE_HOST'] = get_config('database_host')
     os.environ['QIPR_DATABASE_PORT'] = get_config('database_port')
     os.environ['APPROVER_SHARED_BRIDGE_KEY'] = get_config('approver_shared_bridge_key')
+    os.environ['QIPR_REGISTRY_REGISTRY_HOST'] = get_config('registry_host', 'hosts')
+    os.environ['QIPR_REGISTRY_REGISTRY_PORT'] = get_config('registry_port', 'hosts')
+    os.environ['QIPR_REGISTRY_REGISTRY_PATH'] = get_config('registry_path', 'hosts')
+    os.environ['QIPR_REGISTRY_APPROVER_HOST'] = get_config('approver_host', 'hosts')
+    os.environ['QIPR_REGISTRY_APPROVER_PATH'] = get_config('approver_path', 'hosts') 
+
 
 define_env()
 
@@ -48,11 +54,7 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ['DJANGO_CONFIGURATION'] == 'development')
 
-ALLOWED_HOSTS = [
-    '192.168.222.2',
-    '*',
-]
-
+ALLOWED_HOSTS = [get_config('registry_host', 'hosts')]
 
 # Application definition
 

@@ -38,3 +38,5 @@ approver_username = 'approver_api_user'
 bridge_keys = {
     'approver': os.environ['APPROVER_SHARED_BRIDGE_KEY'],
 }
+
+approver_url = os.environ['QIPR_REGISTRY_APPROVER_HOST'] + os.environ['QIPR_REGISTRY_APPROVER_PATH']
