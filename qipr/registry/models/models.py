@@ -128,7 +128,7 @@ class Person(Provenance):
 class Project(Provenance):
     advisor = models.ManyToManyField(Person, related_name="advised_projects")
     approval_date = models.DateTimeField(null=True)
-    big_aim = models.ManyToManyField(BigAim)
+    big_aim = models.ForeignKey(BigAim, null=True, on_delete=models.SET_NULL)
     category = models.ManyToManyField(Category)
     clinical_area = models.ManyToManyField(ClinicalArea)
     clinical_setting = models.ManyToManyField(ClinicalSetting)
