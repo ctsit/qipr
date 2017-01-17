@@ -89,7 +89,7 @@ class Descriptor(MeshModel):
     pharmacological_action = models.ManyToManyField(PharmacologicalAction)
     related_registry_number = models.ManyToManyField(RegistryNumber)
     semantic_type = models.ManyToManyField(SemanticType)
-    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='mesh_keyword', null=True)
+    projects = models.ManyToManyField(Project, related_name='mesh_keyword', null=True)
     tag_property_name = 'mesh_heading'
 
     def __str__(self):

@@ -28,6 +28,7 @@ filter_field_maps = {
     'ClinicalArea': 'clinical_area',
     'ClinicalSetting': 'clinical_setting',
     'ClinicalDepartment': 'clinical_department',
+    'Descriptor': 'mesh_keyword',
     'Keyword': 'keyword',
     'SafetyTarget': 'safety_target',
 }
