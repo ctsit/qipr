@@ -1,6 +1,7 @@
 import json
 import importlib
 import datetime
+import dateutil.parser as date_parser
 
 from registry import constants
 from registry import utils
@@ -179,12 +180,13 @@ def create_or_update(Model, natural_dict, user_save, relatedStore=None):
         instance = Model()
     for key in natural_dict.keys():
         value = natural_dict.get(key)
-        if (key == 'account_expiration_time') and value:
-            value = datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%SZ")
+        if ('time' in key) and value:
+            value = date_parser.parse(value)
         if ('date' in key) and value:
-            value = datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%fZ")
+            value = date_parser.parse(value)
         setattr(instance, key, value)
     if relatedStore:
+        user_save(instance)
         relatedStore.associate_relateds(instance)
     user_save(instance)
     return instance
