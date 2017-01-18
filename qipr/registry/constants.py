@@ -42,3 +42,5 @@ bridge_keys = {
 protocol = 'http://' if (os.environ['DJANGO_CONFIGURATION'] == 'development') else 'https://'
 
 approver_url = protocol + os.environ['QIPR_REGISTRY_APPROVER_HOST'] + os.environ['QIPR_REGISTRY_APPROVER_PATH']
+
+VERSION = 1.0.0

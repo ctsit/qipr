@@ -1,3 +1,39 @@
+## [1.0.0] - 2017-01-17
+## Summary
+This release includes the new redesign of Registry. It includes better search
+features and a cleaner overall design. There is also better security.
+
+### Added
+ * add new constants in settings for approver url (Matthew McConnell)
+ * Only approver can add models (Patrick White)
+ * Add QI criteria pdf to img file and update href link on faq page (Amber Allen)
+ * Add link path to search QIPR link on FAQ (Amber Allen)
+ * Add project charter to img file (Amber Allen)
+ * Add FAQ section to new FAQ page (Amber Allen)
+ * Add helper text to search bar on registry. Make search bar span top of page. (Amber Allen)
+ * added search on title and description (Patrick White)
+ * Add back to search link on project_info page. Link still needs href added. (Amber Allen)
+
+### Fixed
+ * search has no duplicates (Patrick White)
+ * fixing the bridge, mesh keywords update models (Patrick White)
+
+### Changed
+ * Remove facets from main registry project page (Amber Allen)
+ * Add bg image to project registry header (Amber Allen)
+ * Add header to registry page (Amber Allen)
+ * Redesign facets section (Amber Allen)
+ * Remove card class and edit bottom margin in project section (Amber Allen)
+ * Change text styles on project titles and subtitles (Amber Allen)
+ * Update footer copywrite, designed by, and remove qi email on index, project info, and search pages (Amber Allen)
+ * Change About link in nav to FAQs and update links (Amber Allen)
+ * Make separate header for FAQ title on FAQ page. (Amber Allen)
+ * Style get help orange section on FAQ page (Amber Allen)
+ * Remove Video section on old About page (Amber Allen)
+ * Remove Featured QI Projects section (Amber Allen)
+ * Modify placeholder text in searchbar (Amber Allen)
+ * Change background color on search bar on registry (Amber Allen)
+
 ## [0.3.0] - 2016-11-24
 ## Summary
  This update adds a new landing page for customers to understand what the
