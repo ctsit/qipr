@@ -19,7 +19,6 @@ AllNormalModels =[
     Position,
     Project,
     QI_Interest,
-    SafetyTarget,
     Speciality,
     Suffix,
     Training,

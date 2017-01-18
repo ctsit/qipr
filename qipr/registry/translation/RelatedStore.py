@@ -1,5 +1,9 @@
 import pdb
 class RelatedStore (object):
+    """
+    This class is used in translation to
+    associate related properties to their model
+    """
 
     def __init__(self):
         self.related = {}
@@ -18,7 +22,8 @@ class RelatedStore (object):
             prop_name = key
             if key in dir(model):
                 related_property = getattr(model, key)
-                if related_property and getattr(related_property, "add"):
+                class_name = related_property.__class__.__name__
+                if related_property and class_name == 'ManyRelatedManager':
                     for item in self.related[key]:
                         related_property.add(item)
                 else:

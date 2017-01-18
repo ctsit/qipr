@@ -1,6 +1,12 @@
 
 from django.shortcuts import render
 
-def index(request):
+import registry.constants as constants
 
-    return render(request, 'registry/index.html')
+def index(request):
+    context = {
+        'approver_dashboard': constants.approver_url + '/dashboard',
+        'approver_logout': constants.approver_url + '/logout'
+    }
+
+    return render(request, 'registry/index.html', context)

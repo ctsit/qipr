@@ -1,20 +1,18 @@
 from registry.models import *
 from operator import attrgetter
 
-facet_Models = [
+related_by_projects_Models = [
     BigAim,
-    Category,
-    ClinicalArea,
     ClinicalSetting,
-    Keyword,
-    SafetyTarget,
+    ClinicalSetting,
+    Descriptor,
 ]
 
 class FacetForm:
     def __init__(self):
-        self.facet_categories = [model.__name__ for model in facet_Models]
-        for model in facet_Models:
+        self.facet_categories = [model.__name__ for model in related_by_projects_Models]
+        for model in related_by_projects_Models:
             models = list(model.objects.all())
-            models.sort(key=lambda m : m.project_set.count(), reverse=True)
+            models.sort(key=lambda m : m.projects.count(), reverse=True)
             setattr(self, model.__name__, models)
 

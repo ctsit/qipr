@@ -1,24 +1,22 @@
 import json
 import importlib
 import datetime
-
-from django.contrib.auth.models import User
+import dateutil.parser as date_parser
 
 from registry import constants
 from registry import utils
 from registry.translation.RelatedStore import RelatedStore
 
-def translate(json_data):
+def translate(user, json_data):
     """
     Takes json from post data and turns it into a python data
     structure. Then it iterates over it and returns a list
     of instantiated models
     """
     deserialized = json.loads(json_data)
-    # deserialized = json_data
-    return [get_model(item) for item in deserialized]
+    return [get_model(item, user) for item in deserialized]
 
-def get_model(serialized_model):
+def get_model(serialized_model, user):
     """
     In order to instantiate the serialized model we need
     the constructor and we need to transform the natural
@@ -26,8 +24,8 @@ def get_model(serialized_model):
     pass to the constructor as kwargs.
     """
     Model = get_model_class(serialized_model)
-    (initial_field, relatedStore) = get_initial_values(serialized_model)
-    return create_or_update(Model, initial_field, relatedStore)
+    (initial_field, relatedStore) = get_initial_values(serialized_model, save_as(user))
+    return create_or_update(Model, initial_field, save_as(user), relatedStore)
 
 def get_model_class(serialized_model):
     model_name = get_model_name(serialized_model)
@@ -57,7 +55,7 @@ def model_class_name_to_constructor(model_class_name):
     """
     return model_class_name
 
-def get_initial_values(serialized_model):
+def get_initial_values(serialized_model, user_save):
     """
     This function gets the initial values out of the fields dictionary
     in the serialized_model
@@ -72,7 +70,7 @@ def get_initial_values(serialized_model):
     copy = dict(serialized_model.get('fields'))
     copy = fix_provenance(copy)
     copy = remove_model_class_name_field(copy)
-    (copy, relatedStore) = get_fields_related_store(model_name, copy)
+    (copy, relatedStore) = get_fields_related_store(model_name, copy, user_save)
     del serialized_model['fields']
     serialized_model['fields'] = copy
     return (serialized_model['fields'], relatedStore)
@@ -92,7 +90,6 @@ def fix_provenance(fields):
     we are taking information from some database and putting it in
     another, we need to be able to fix those fields.
     """
-    approver = User.objects.get(username=constants.approver_username)
     provenance_fields = [
         'created',
         'created_by',
@@ -106,14 +103,14 @@ def fix_provenance(fields):
             pass
     return fields
 
-def get_fields_related_store(model_name, fields):
+def get_fields_related_store(model_name, fields, user_save):
     """
     This function's purpose is to replace the values in fields
     that correspond to related models in the fields dictionary
     with instances of the model.
     """
     fields = flatten_related_values(fields)
-    (fields, relatedStore) = instantiate_related_models(fields)
+    (fields, relatedStore) = instantiate_related_models(fields, user_save)
     return (fields, relatedStore)
 
 def flatten_related_values(fields_to_change):
@@ -132,16 +129,15 @@ def flatten_related_values(fields_to_change):
                 fields[key] = [item[0] for item in value]
     return fields
 
-def make_model_from_dict(item):
+def make_model_from_dict(item, user_save):
         natural_dict = item
         model_class_name = item.get('model_class_name')
         Model = model_name_to_model_class(model_class_name)
         natural_dict = fix_provenance(natural_dict)
         natural_dict = remove_model_class_name_field(natural_dict)
-        return create_or_update(Model, natural_dict)
+        return create_or_update(Model, natural_dict, user_save)
 
-
-def instantiate_related_models(fields):
+def instantiate_related_models(fields, user_save):
     """
     This function iterates over the properties of
     fields and if the dictionary has a model_class_name
@@ -159,20 +155,19 @@ def instantiate_related_models(fields):
             for item in value:
                 if isinstance(item, dict) and item.get('model_class_name'):
                     to_delete.add(key)
-                    instance = make_model_from_dict(item)
+                    instance = make_model_from_dict(item, user_save)
                     relatedStore.add_related(key, instance)
         else:
             if isinstance(value, dict) and value.get('model_class_name'):
                 to_delete.add(key)
-                instance = make_model_from_dict(value)
+                instance = make_model_from_dict(value, user_save)
                 relatedStore.add_related(key, instance)
 
-    relatedStore.foreach(approver_save)
     for key in to_delete:
         del fields[key]
     return (fields, relatedStore)
 
-def create_or_update(Model, natural_dict, relatedStore=None):
+def create_or_update(Model, natural_dict, user_save, relatedStore=None):
     """
     Checks for a guid. If it finds one, it tries to get the
     corresponding element and update it. Otherwise it will
@@ -185,17 +180,23 @@ def create_or_update(Model, natural_dict, relatedStore=None):
         instance = Model()
     for key in natural_dict.keys():
         value = natural_dict.get(key)
+        if ('time' in key) and value:
+            value = date_parser.parse(value)
         if ('date' in key) and value:
-            value = datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%fZ")
+            value = date_parser.parse(value)
         setattr(instance, key, value)
-    approver_save(instance)
     if relatedStore:
+        user_save(instance)
         relatedStore.associate_relateds(instance)
-        approver_save(instance)
+    user_save(instance)
     return instance
 
-def approver_save(instance):
+def save_as(user):
     """
-    Saves using the approver user
+    Returns a callback which saves the model as the user that you
+    pass in
     """
-    instance.save(User.objects.get(username=constants.approver_username))
+    def user_save(instance):
+        instance.save(user)
+
+    return user_save

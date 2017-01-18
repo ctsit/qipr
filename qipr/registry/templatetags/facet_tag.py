@@ -11,22 +11,33 @@ def facet_tag(facet_category, facet_form):
     use with FacetForm
     """
     context = {
-        'category': facet_category,
+        'category': __get_facet_category(facet_category),
         'facets': []
     }
     # fill facets with information that was passed in from the form
     context['facets'] = [__get_facet_dict(model) for model in getattr(facet_form, facet_category)]
     return context
 
+def __get_facet_category(model_name):
+    return model_name if not(model_name == 'Descriptor') else 'MeSH Keyword'
+
 def __get_facet_dict(model):
     facet_dict = {
         'filter_field': __get_filter_field(model),
         'value': model.pk,
-        'name': model.name,
-        'label': model.name,
+        'name': __get_name(model),
+        'label': __get_name(model),
         'is_checked': ''
     }
     return facet_dict
+
+def __get_name(model):
+    try:
+        name = model.name
+        return name
+    except:
+        name = model.mesh_heading
+        return name
 
 def __get_filter_field(model):
     return filter_field_maps[model.__class__.__name__]
