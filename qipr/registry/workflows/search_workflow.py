@@ -1,4 +1,5 @@
 from django.core import serializers
+from django.db.models import Q
 
 from registry.models import Project
 
@@ -17,13 +18,12 @@ def get_matching_projects(search_text, descriptors):
     projects = Project.objects.all()
     filter_field_key = 'ff'
     value_key = 'v'
+    projects = projects.exclude(**{'archived':True})
     for item in descriptors:
         projects = projects.filter(**{item[filter_field_key]: item[value_key]})
     if search_text:
-        title_projects = projects.filter(title__icontains=search_text)
-        desc_projects = projects.filter(description__icontains=search_text)
-        projects = list(title_projects) + list(desc_projects)
-        projects = list(set(projects))
+        projects = projects.filter(Q(title__icontains=search_text) | Q(description__icontains=search_text))
+        projects = projects.distinct()
     return projects
 
 def serialize_for_response(iterable, use_natural_keys=False):
