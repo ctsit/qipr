@@ -420,6 +420,12 @@ nav .button-collapse {
     left: 1rem;
 }
 
+.facet-tag__no-facet {
+    text-align: center;
+    margin-top: -0.4rem;
+    font-size: large;
+}
+
 .facet-tag__category {
     background-color: #022a52;
     border-bottom: solid 2px #fff;
@@ -447,11 +453,11 @@ nav .button-collapse {
 }
 
 .facet-tag__details--inactive {
-    transform: rotateZ(0deg);
+    /* transform: rotateZ(180deg); */
 }
 
 .facet-tag__details--active {
-    transform: rotateZ(90deg);
+    /* transform: rotateZ(90deg); */
 }
 
 .hidden {

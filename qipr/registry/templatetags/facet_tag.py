@@ -11,15 +11,12 @@ def facet_tag(facet_category, facet_form):
     use with FacetForm
     """
     context = {
-        'category': __get_facet_category(facet_category),
+        'display': facet_form.get_display(facet_category),
         'facets': []
     }
     # fill facets with information that was passed in from the form
     context['facets'] = [__get_facet_dict(model) for model in getattr(facet_form, facet_category)]
     return context
-
-def __get_facet_category(model_name):
-    return model_name if not(model_name == 'Descriptor') else 'MeSH Keyword'
 
 def __get_facet_dict(model):
     facet_dict = {

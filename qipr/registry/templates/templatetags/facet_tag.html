@@ -1,8 +1,8 @@
 <div class="facet-tag">
     <div class="facet-tag__category">
-        {{ category }}
+        {{ display }}
     </div>
-    <i class="material-icons facet-tag__details facet-tag__details--inactive">remove</i>
+    <i class="material-icons facet-tag__details facet-tag__details--inactive">add</i>
     <ul class="facet-tag__facet-list hidden">
     {% for facet in facets %}
         <li class="facet-tag__item">
@@ -16,5 +16,10 @@
             <label class="facet-tag__label"for="{{ facet.name }}">{{ facet.label }}</label>
         </li>
     {% endfor %}
+    {% if not facets %}
+        <div class="facet-tag__no-facet">
+            No approved projects with this field.
+        </div>
+    {% endif %}
     </ul>
 </div>

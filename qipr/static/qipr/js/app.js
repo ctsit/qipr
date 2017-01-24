@@ -9,9 +9,11 @@
                 siblingDetailList = clicked.parentElement.querySelector('ul.facet-tag__facet-list');
             if (clicked.classList.contains('facet-tag__details--inactive')) {
                 clicked.classList.remove('facet-tag__details--inactive');
+                clicked.textContent = 'remove';
                 siblingDetailList.classList.remove('hidden');
             } else {
                 clicked.classList.add('facet-tag__details--inactive');
+                clicked.textContent = 'add';
                 siblingDetailList.classList.add('hidden');
             }
         });
