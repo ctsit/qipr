@@ -1,3 +1,22 @@
+## [1.0.1] - 2017-01-24
+## Summary
+
+### Added
+* Add version number to footer (Matthew McConnell)
+* Changed speciality to reflect approver changes (Patrick White)
+* Added title tag to search along with favicon (Patrick White)
+* Registry respects archived (Patrick White)
+
+### Fixed
+* add proper urls to navbar. close #288 (Matthew McConnell)
+* Fixed display of facet titles (Patrick White)
+* clinical area now faceted. (Patrick White)
+* PI now displayed in project card (Patrick White)
+
+### Changed
+* added message for when no projects have the desired facet (Patrick White)
+* Minus symbols are pluses when drawer is closed (Patrick White)
+
 ## [1.0.0] - 2017-01-17
 ## Summary
 This release includes the new redesign of Registry. It includes better search
