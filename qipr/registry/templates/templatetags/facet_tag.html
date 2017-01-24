@@ -16,5 +16,10 @@
             <label class="facet-tag__label"for="{{ facet.name }}">{{ facet.label }}</label>
         </li>
     {% endfor %}
+    {% if not facets %}
+        <div class="facet-tag__no-facet">
+            No approved projects with this field.
+        </div>
+    {% endif %}
     </ul>
 </div>
