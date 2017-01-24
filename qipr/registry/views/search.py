@@ -18,5 +18,6 @@ def search(request, search_text, descriptors_json):
         'approver_dashboard': constants.approver_url + '/dashboard',
         'approver_logout': constants.approver_url + '/logout',
         'approver_url': constants.approver_url,
+        'version_number': constants.VERSION
     }
     return render(request, 'registry/search.html', context)
