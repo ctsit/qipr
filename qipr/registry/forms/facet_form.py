@@ -3,7 +3,7 @@ from operator import attrgetter
 
 related_by_projects_Models = [
     BigAim,
-    ClinicalSetting,
+    ClinicalArea,
     ClinicalSetting,
     Descriptor,
 ]
