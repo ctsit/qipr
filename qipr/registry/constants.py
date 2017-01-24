@@ -43,4 +43,4 @@ protocol = 'http://' if (os.environ['DJANGO_CONFIGURATION'] == 'development') el
 
 approver_url = protocol + os.environ['QIPR_REGISTRY_APPROVER_HOST'] + os.environ['QIPR_REGISTRY_APPROVER_PATH']
 
-VERSION = 1.0.0
+VERSION = '1.0.1'

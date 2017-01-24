@@ -1,6 +1,8 @@
 <html>
     <head>
         {% load staticfiles %}
+        <title>QIPR</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'qipr/img/favicon-32x32.png' %}">
         <link href="{% static 'qipr/css/materialize.css' %}" type="text/css" rel="stylesheet"/>
         <link href="{% static 'qipr/css/main.css' %}" type="text/css" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,21 +14,21 @@
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper bg-blue">
-                    <a id="icon-container" class="icon" href="#">
+                    <a id="icon-container" class="icon" href="{{ approver_url }}">
                         <img class="nav__logo" src="{% static 'qipr/img/qipr_outlines.png' %}">
                     </a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse hide-on-med-and-up"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-small-only">
-                        <li class="nav_li"><a href="#">Dashboard</a></li>
+                        <li class="nav_li"><a href="{{ approver_dashboard }}">Dashboard</a></li>
                         <li class="nav_li"><a href="{% url 'registry:search' %}">Search Registry</a></li>
                         <li class="nav_li"><a href="{% url 'registry:index' %}">FAQs</a></li>
-                        <li><a class="btn btn__logout" href="#">Logout</a></li>
+                        <li><a class="btn btn__logout" href="{{ approver_logout }}">Logout</a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo">
-                        <li><a class="" href="#">Dashboard</a></li>
+                        <li><a class="" href="{{ approver_dashboard }}">Dashboard</a></li>
                         <li><a class="" href="{% url 'registry:search' %}">Search Registry</a></li>
                         <li><a class="" href="{% url 'registry:index' %}">FAQs</a></li>
-                        <li><a class="btn" href="#">Logout</a></li>
+                        <li><a class="btn" href="{{ appprover_logout }}">Logout</a></li>
                     </ul>
                 </div>
             </nav>
@@ -40,7 +42,6 @@
                     <form method="post" action="javascript:void(0);" id="search_form">
                         {% csrf_token %}
                         <input placeholder="Search e.g. handwashing" class="dashboard_search-input" id="search" type="search" name="search" value={{ search_query }} >
-                        
                         <input class="dashboard__search--projects" type="submit" value="&#128270;">
                     </form>
                 </div>

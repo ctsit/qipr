@@ -1,10 +1,10 @@
 import json
 
 from django.shortcuts import render
-from django.http import HttpResponse
 
 from registry.forms import FacetForm
 from registry.workflows import search_workflow
+import registry.constants as constants
 
 def search(request, search_text, descriptors_json):
     descriptors = json.loads(descriptors_json or '[]')
@@ -15,5 +15,9 @@ def search(request, search_text, descriptors_json):
         'facet_form': FacetForm(),
         'descriptors': descriptors_json or '[]',
         'search_query': search_text or '',
+        'approver_dashboard': constants.approver_url + '/dashboard',
+        'approver_logout': constants.approver_url + '/logout',
+        'approver_url': constants.approver_url,
+        'version_number': constants.VERSION
     }
     return render(request, 'registry/search.html', context)
