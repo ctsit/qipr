@@ -8,7 +8,7 @@ def project_info(request, project_id=1):
         context = {
             'title': project.title,
             'description': project.description,
-            'owner': project.owner,
+            'owner': str(project.owner),
             'collaborators_string': '; '.join([str(item) for item in project.collaborator.all()]),
             'advisors_string': '; '.join([str(item) for item in project.advisor.all()]),
             'categories': project.category.all(),
