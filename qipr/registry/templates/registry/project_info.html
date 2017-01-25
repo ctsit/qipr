@@ -48,7 +48,7 @@
                         <span class="card__header">Project Description:</span> {{ description }}
                     </p>
                     <p class="card-content">
-                        <span class="card__header">PI:</span> {{ owner }}
+                        <span class="card__header">QPI:</span> {{ owner }}
                     </p>
                     <p class="card-content">
                         <span class="card__header">Collaborators:</span> {{ collaborators_string }}
@@ -57,7 +57,7 @@
                         <span class="card__header">Advisors:</span> {{ advisors_string }}
                     </p>
                     <p class="card-content">
-                        <span class="card__header">UF Health Big Aims:</span> {{ bigaims }} 
+                        <span class="card__header">UF Health Big Aims:</span> {{ bigaim }}
                     </p>
 
                     <p class="card-content">
@@ -67,7 +67,7 @@
                 </div>
 
                 <div class="col s12">
-                    <a class="back__dashboard center" href="">- Back to Search -</a>
+                    <a id="back-to-search" class="back__dashboard center" href="{% url 'registry:search' %}">- Back to Search -</a>
                 </div>
             </div>
         </div>
@@ -107,6 +107,7 @@
         <!-- END SECTION THAT WILL GO IN THE LAYOUT TEMPLATE -->
         <script type="text/javascript" src="{% static 'qipr/js/materialize.js' %}"></script>
         <script type="text/javascript" src="{% static 'qipr/js/functions.js' %}"></script>
+        <script type="text/javascript" src="{% static 'qipr/js/app.js' %}"></script>
     </body>
 </html>
 

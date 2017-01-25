@@ -21,7 +21,12 @@
 
     var facets = document.querySelectorAll('.facet-tag__input');
 
-    var descriptors = JSON.parse(document.querySelector('#search-descriptors').textContent);
+    try {
+        var descriptors = JSON.parse(document.querySelector('#search-descriptors').textContent);
+    } catch (err) {
+        console.log(err);
+        var descriptors = [];
+    }
 
     function getFacetTagRoot(node) {
         if (node.classList.contains('facet-tag')) {
@@ -99,6 +104,16 @@
         node.addEventListener('click', window.searchHandler);
     });
 
-    document.querySelector('#search_form').addEventListener('submit', window.searchHandler);
+    try {
+        document.querySelector('#search_form').addEventListener('submit', window.searchHandler);
+    } catch (err) {console.log(err);};
+
+    try {
+        document.getElementById('back-to-search').addEventListener('click', function (event) {
+            event.preventDefault();
+            window.history.back();
+            return false;
+        });
+    } catch (err) {console.log(err);};
 
 }();
