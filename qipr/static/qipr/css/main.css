@@ -52,9 +52,9 @@ nav ul a:hover, nav ul a:active {
 }
 
 .nav__logo {
-    height: 75%;
-    padding-left: 0.3rem;
     margin-top: .5rem;
+    height: 3.5rem;
+    padding-left: 0.3rem;
 }
 
 .search {
@@ -635,6 +635,13 @@ footer.page-footer .footer-copyright {
 
     .input-field form .dashboard_search-input {
         font-size: 1.2rem;
+    }
+}
+
+@media screen and (min-width: 609px) {
+    nav ul a {
+    padding-left:1rem;
+    padding-right:1rem;
     }
 }
 
