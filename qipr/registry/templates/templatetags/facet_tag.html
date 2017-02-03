@@ -13,7 +13,7 @@
                 type="checkbox"
                 value="{{ facet.value }}"
                 {{ is_checked }}/>
-            <label class="facet-tag__label"for="{{ facet.name }}">{{ facet.label }}</label>
+            <label class="facet-tag__label" for="{{ facet.name }}">{{ facet.label }}</label>
         </li>
     {% endfor %}
     {% if not facets %}
