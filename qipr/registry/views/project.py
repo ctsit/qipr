@@ -13,7 +13,7 @@ def project_info(request, project_id=1):
             'advisors_string': '; '.join([str(item) for item in project.advisor.all()]),
             'categories': project.category.all(),
             'mesh_string': ', '.join([str(item) for item in project.mesh_keyword.all()]),
-            'bigaims': str(project.big_aim),
+            'bigaim': str(project.big_aim) if project.big_aim else '',
             'clinical_areas': project.clinical_area.all(),
             'clinical_settings': project.clinical_setting.all(),
             'proposed_start_date': project.proposed_start_date,
