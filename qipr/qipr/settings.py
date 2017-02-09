@@ -20,7 +20,7 @@ def get_config(key, section=config.default_section):
     return config.get(section, key)
 
 def define_env():
-    config.read('/var/www/qipr/qipr/deploy/settings.ini')
+    config.read('/var/www/qipr/registry/qipr/deploy/settings.ini')
     os.environ['DJANGO_SETTINGS_MODULE'] = "qipr.settings"
     os.environ['DJANGO_CONFIGURATION'] = get_config('configuration')
     os.environ['DJANGO_SECRET_KEY'] = get_config('secret_key')
@@ -48,7 +48,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'g3sk8-zmx^pxxm3k@5#m8&^d6-#jm+al_&(*-6r-pr9z72zd98'
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -151,5 +150,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/registry/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

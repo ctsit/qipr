@@ -12,7 +12,6 @@ function configure_base() {
 
    # Update packages
    apt-get update -y
-   #apt-get upgrade -y
 }
 
 function install_utils() {
@@ -72,27 +71,9 @@ function apache_setup() {
     service apache2 start
 }
 
-function swap_to_migration_urls () {
-    pushd qipr
-        cp urls.py temp_urls.py
-        rm urls.py
-        cp migration_urls.py urls.py
-    popd
-}
-
-function swap_to_real_urls () {
-    pushd qipr
-        rm urls.py
-        cp temp_urls.py urls.py
-        rm temp_urls.py
-    popd
-}
-
 function migrate_application_database () {
     source venv/bin/activate
-    swap_to_migration_urls
     python3 manage.py migrate
-    swap_to_real_urls
     deactivate
 }
 
@@ -101,22 +82,43 @@ function apply_fixtures() {
     python3 manage.py loaddata ./registry/fixtures/user.json
 }
 
+function handle_static_files() {
+    source venv/bin/activate
+    python3 manage.py collectstatic --no-input
+    deactivate
+}
+
+function copy_settings_example() {
+    pushd /var/www/qipr/registry/qipr/deploy
+    if [ -e settings.ini ]; then
+        echo "settings.ini already defined"
+    else
+        echo "settings.ini created from settings.example.ini"
+        cp settings.example.ini settings.ini
+    fi
+    popd
+}
+
 function install_qipr_fresh_vm () {
-    pushd /var/www/qipr
+    pushd /var/www/qipr/registry
+        copy_settings_example
         create_virtualenv
         pip_dependencies
         create_database
         migrate_application_database
         apply_fixtures
+        handle_static_files
         apache_setup
     popd
 }
 
 function install_qipr() {
     pushd /var/www/qipr
+        copy_settings_example
         create_virtualenv
         pip_dependencies
         migrate_application_database
         apply_fixtures
+        handle_static_files
     popd
 }

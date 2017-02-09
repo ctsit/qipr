@@ -7,7 +7,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "debian/jessie64"
   config.vm.hostname = "qipr"
-  config.vm.synced_folder "../qipr", "/var/www/qipr"
+  config.vm.synced_folder "../qipr", "/var/www/qipr/registry"
   config.vm.network "private_network", ip: "192.168.222.2"
   config.vm.define "qipr"
 
