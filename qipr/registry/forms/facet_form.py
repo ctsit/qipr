@@ -14,7 +14,7 @@ class FacetForm:
         self.facet_categories = [model.__name__ for model in related_by_projects_Models]
         for model in related_by_projects_Models:
             models = list(model.objects.all())
-            models.sort(key=lambda m : m.projects.count(), reverse=True)
+            models.sort(key=lambda m : m.__str__(), reverse=False)
             setattr(self, model.__name__, models)
 
     def get_display(self, facet_category):
