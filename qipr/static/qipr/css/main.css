@@ -80,7 +80,7 @@ nav .brand-logo {
     line-height: 2rem;
     height: 2rem;
     width: 5rem;
-    padding: 0 .6;
+    padding: 0 .6rem;
 }
 
 nav ul a.btn:hover, .side-nav a.btn:hover, .side-nav a.btn-large:hover, .side-nav a.btn-large:hover {
@@ -169,6 +169,12 @@ nav .button-collapse {
     color: #004d9a;
     height: 4rem;
     padding-top: .5rem;
+}
+
+.text__searchbar{
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
 .landing__FAQ--font {

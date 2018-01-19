@@ -15,14 +15,18 @@ def get_matching_projects(search_text, descriptors):
     Right now this is strongly coupled to the model
     think about how to decouple
     """
-    projects = Project.objects.all()
+    projects = Project.objects.select_related('owner').all()
     filter_field_key = 'ff'
     value_key = 'v'
     projects = projects.exclude(**{'archived':True})
     for item in descriptors:
         projects = projects.filter(**{item[filter_field_key]: item[value_key]})
     if search_text:
-        projects = projects.filter(Q(title__icontains=search_text) | Q(description__icontains=search_text))
+        projects = projects.filter(Q(title__icontains=search_text) |
+                                   Q(description__icontains=search_text) |
+                                   Q(owner__gatorlink__icontains=search_text) |
+                                   Q(owner__first_name__icontains=search_text) |
+                                   Q(owner__last_name__icontains=search_text))
         projects = projects.distinct()
     return projects
 
