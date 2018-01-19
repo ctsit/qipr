@@ -1,3 +1,16 @@
+## [1.2.0] - 2018-01-19
+## Summary
+   This update updated some wording under the search in order to make it clear
+   that the search works best in non-IE browsers. Also added the ability to search for 
+   a project based on the QPI name or Gatorlink. Finally, the facets sorting changed
+   from most used to alphabetical.
+### Added
+ * Update FAQ on home page to match approver which added a new question (Matthew McConnell)
+ * Add a line about browser compatibility and make text larger under search (Matthew McConnell)
+ * Add the ability to search on QPI name and gatorlink (Matthew McConnell)
+### Changed
+ * Change the facet to sort by name instead of project count (Matthew McConnell)
+
 ## [1.1.0] - 2017-02-06
 ## Summary
 This release updates some broken links and fixes a bug where big
