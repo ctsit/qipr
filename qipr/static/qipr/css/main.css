@@ -171,6 +171,12 @@ nav .button-collapse {
     padding-top: .5rem;
 }
 
+.text__searchbar{
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
 .landing__FAQ--font {
     font-size:1.25rem;
 }
